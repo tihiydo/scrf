@@ -1,0 +1,73 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+
+
+.table {
+	border-radius: 20px;
+	width: 100%;
+
+	& thead {
+		background-color: rgba(203, 213, 225, 0.1);
+
+		& th {
+			padding: 19px 0;
+			font-family: fonts.$font-primary;
+			line-height: normal;
+			font-size: 30px;
+			text-transform: uppercase;
+			border-bottom: 1px solid rgba(203, 213, 225, 0.2);
+
+			&:first-of-type {
+				border-radius: 10px 0 0 0;
+				padding-left: 30px;
+
+				@media (max-width: 600px) {
+					padding-left: 20px;
+				}
+			}
+
+			&:last-of-type {
+				border-radius: 0 10px 0 0;
+			}
+
+			@media (max-width: 600px) {
+				font-size: fonts.$size-lg;
+			}
+		}
+	}
+
+	& tbody {
+		background-color: #ffffff08;
+
+		& td {
+			font-family: fonts.$font-secondary;
+			font-size: 18px;
+			padding: 20px 0 16px 0;
+			border-bottom: 1px solid rgba(203, 213, 225, 1);
+
+			&:first-of-type {
+				padding-left: 30px;
+
+				@media (max-width: 600px) {
+					padding-left: 20px;
+				}
+			}
+
+			@media (max-width: 600px) {
+				font-size: fonts.$size-ms
+			}
+		}
+
+		& tr:last-of-type td {
+			border: unset;
+			&:first-of-type {
+				border-radius: 0 0 0 20px;
+			}
+
+			&:last-of-type {
+				border-radius: 0 0 20px 0;
+			}
+		}
+	}
+}

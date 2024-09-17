@@ -1,0 +1,52 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+
+.modal-footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+.video-preview {
+	margin-top: 20px;
+	&__title-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom:5px;
+	}
+
+	&__title {
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		font-size: fonts.$size-2xl;
+	}
+
+	&__video {
+		border-radius: 5px;
+		overflow: hidden;
+		object-fit: cover;
+		width: 100%;
+	}
+}
+
+.not-uploaded {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10px;
+
+	background: colors.$dark-main;
+	border-radius: 5px;
+	height: 200px;
+
+	&__icon {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+
+	&__text {
+		margin-top: 10px;
+	}
+}

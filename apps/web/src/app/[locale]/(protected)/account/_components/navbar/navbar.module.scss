@@ -1,0 +1,119 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/mixins';
+
+.sidebar {
+	@include mixins.flex(
+		$justify: flex-start,
+		$align: flex-start,
+		$direction: column,
+		$gap: 20px
+	);
+	width: 100%;
+}
+
+.user {
+	@include mixins.flex($justify: space-evenly, $gap: 30px);
+	@include mixins.account-block();
+	border-radius: 20px;
+	width: 100%;
+	padding: 39px 0 39px 20px;
+}
+
+.user-data {
+	& h3 {
+		font-family: fonts.$font-primary;
+		text-transform: uppercase;
+		font-size: fonts.$size-3xl;
+		@media (max-width: 768px) {
+			font-size: fonts.$size-lg;
+		}
+	}
+
+	& p {
+		font-family: fonts.$font-secondary;
+		font-size: fonts.$size-lg;
+	}
+
+	@media (max-width: 600px) {
+		& h3 {
+			font-size: fonts.$size-sm;
+		}
+
+		& p {
+			font-size: fonts.$size-sm
+		}
+	}
+}
+.tabs {
+	font-size: 10px;
+	@include mixins.flex(
+		$justify: flex-start,
+		$align: flex-start,
+		$direction: column,
+		$gap: 20px
+	);
+	@include mixins.account-block();
+	border-radius: 20px;
+	padding: 30px 20px;
+	width: 100%;
+}
+
+.tab {
+	@include mixins.flex($justify: flex-start, $gap: 30px);
+	padding: 15px 0 15px 10px;
+	width: 100%;
+	max-width: 390px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: 0.4s;
+
+	& p {
+		font-weight: 900;
+		font-size:fonts.$size-3xl;
+		text-transform: uppercase;
+
+		@media (max-width: 600px) {
+			font-size: fonts.$size-ms;
+		}
+	}
+
+	& svg {
+		@media (max-width: 600px) {
+			height: 25px;
+			width: 25px;
+		}
+	}
+
+	&_active {
+		pointer-events: none;
+	}
+
+	&:is(:hover, &_active) {
+		background-color: #faff00;
+
+		& p {
+			color: #0d141f;
+		}
+
+		& svg {
+			& path {
+				fill: #0d141f;
+			}
+		}
+
+		&:first-of-type {
+			& svg {
+				& path {
+					fill: none;
+					stroke: #0d141f;
+				}
+			}
+		}
+	}
+}
+
+.avatar {
+	flex-shrink: 0;
+}

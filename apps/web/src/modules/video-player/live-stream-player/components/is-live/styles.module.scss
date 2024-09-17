@@ -1,0 +1,26 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+.live {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.text {
+	text-transform: uppercase;
+	font-size: fonts.$size-lg;
+	color: colors.$text-primary;
+}
+
+.dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 100%;
+    background-color: colors.$gray;
+    transition-duration: .5s;
+
+	&__active {
+		background-color: #00ff1a;
+	}
+}

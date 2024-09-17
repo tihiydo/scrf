@@ -1,0 +1,12 @@
+@use 'src/styles/variables/colors';
+@use 'src/styles/variables/fonts';
+
+.filters {
+    background: colors.$primary-bg;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    &__title {
+        font-size: fonts.$size-xl;
+    }
+}

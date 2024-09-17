@@ -1,0 +1,28 @@
+@mixin flex($align: center, $justify: center, $direction: row, $gap: 0) {
+	display: flex;
+	align-items: $align;
+	justify-content: $justify;
+	flex-direction: $direction;
+	gap: $gap;
+}
+
+@mixin account-block {
+	border-radius: 10px;
+	background: #ffffff08;
+}
+
+@mixin textEllipsis($lines: 1) {
+	@if $lines == 1 {
+		white-space: nowrap;
+		display: list-item !important;
+		overflow: hidden !important;
+		text-overflow: ellipsis;
+	} @else {
+		word-wrap: break-word;
+		display: -webkit-box;
+		-webkit-line-clamp: $lines;
+		-webkit-box-orient: vertical;
+		overflow: hidden !important;
+		text-overflow: ellipsis;
+	}
+}

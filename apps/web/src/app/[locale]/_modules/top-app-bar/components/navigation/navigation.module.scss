@@ -1,0 +1,52 @@
+@use "src/styles/variables/fonts";
+@use "src/styles/variables/colors";
+@use "src/styles/variables/breakpoints";
+
+.navigation {
+	display: none;
+	align-items: center;
+
+	@media (min-width: breakpoints.$lg) {
+		display: flex;
+	}
+
+	&__list {
+		display: flex;
+		gap: 25px;
+		align-items: center;
+		@media (min-width: breakpoints.$lg) {
+			gap: 40px;
+		}
+	}
+
+	&__list-item {
+	}
+
+	&__link {
+		transition: opacity 100ms;
+		font-family: fonts.$font-primary;
+		font-weight: 900;
+		// font-size: fonts.$size-lg;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: colors.$text-primary;
+		opacity: 0.8;
+
+		@media (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-xl;
+		}
+
+		@media (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-xl;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&_active {
+			opacity: 1;
+		}
+	}
+}
+

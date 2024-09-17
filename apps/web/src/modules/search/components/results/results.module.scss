@@ -1,0 +1,68 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.results {
+	background: colors.$dark-main;
+	border-radius: 5px;
+	border: 1px solid colors.$gray;
+	padding-right: 10px;
+	position: relative;
+	max-height: 300px;
+	overflow: auto;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.title {
+	text-transform: uppercase;
+	font-family: fonts.$font-primary;
+	margin-bottom: 5px;
+	font-size: fonts.$size-lg;
+	padding-right: 15px;
+	padding-left: 15px;
+
+	@media (min-width: breakpoints.$md) {
+		padding: 0 15px;
+		font-size: fonts.$size-2xl;
+		margin-bottom: 8px;
+	}
+}
+
+.list {
+	padding: 0px 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.category {
+	margin-bottom: 20px;
+
+	&:last-child {
+		margin-bottom: 0px;
+	}
+}
+
+.nothing-found {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: colors.$gray;
+
+	&__icon {
+		width: 3rem;
+		height: 3rem;
+	}
+
+	&__text {
+		margin-top: 10px;
+		font-size: fonts.$size-sm;
+	}
+}

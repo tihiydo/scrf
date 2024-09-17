@@ -1,0 +1,130 @@
+stages:
+  - clone
+  - build
+  - run
+  - failureEvent
+  - successEvent
+
+variables:
+  BOT_TOKEN: 7459899664:AAEi26nmJSmHlgW3ERl7Y346ujMjEVQJWdo
+  CHAT_ID: -4280741915
+
+Clone Repo Development:
+  stage: clone
+  script:
+    - echo "Cloning repo .."
+    - mkdir -p /var/www/deploy
+    - find /var/www/deploy -type d ! -exec test -e "{}/.env" \; -print
+    - rsync -avz ./ /var/www/deploy
+  only:
+    - dev
+  tags:
+    - development
+
+Build App Development:
+  stage: build
+  script:
+    - cd /var/www/deploy
+    - echo "Install dependencies for monorepo" && pnpm install --no-frozen-lockfile
+    - echo "Install dependencies and build Next.js" && cd apps/web && pnpm install --no-frozen-lockfile && pnpm run build
+    - echo "Install dependencies for build Nest.js" && cd ../api && pnpm install --no-frozen-lockfile && pnpm run build
+    - echo "Install dependencies for build Broadcast-Parser" && cd ../broadcasts-parser && pnpm install --no-frozen-lockfile && pnpm run build
+  only:
+    - dev
+  tags:
+    - development
+
+Start Service Development:
+  stage: run
+  script:
+  - echo "Restart or start api pm2 procces" && cd /var/www/deploy/apps/api
+  - pm2 restart api || pm2 start pnpm --name "api" -- start:prod
+  - echo "Restart or start web pm2 procces" && cd /var/www/deploy/apps/web 
+  - pm2 restart web || pm2 start pnpm --name "web" -- start
+  - echo "Restart or start web pm2 procces" && cd /var/www/deploy/apps/broadcasts-parser 
+  - pm2 restart broadcasts || pm2 start pnpm --name "broadcasts" -- start
+  only:
+    - dev 
+  tags:
+    - development
+
+Clone Repo Production:
+  stage: clone
+  script:
+    - echo "Cloning repo .."
+    - mkdir -p /var/www/deploy
+    - find /var/www/deploy -type d ! -exec test -e "{}/.env" \; -print
+    - rsync -avz ./ /var/www/deploy
+  only:
+    - main
+  tags:
+    - production
+
+Build App Production:
+  stage: build
+  script:
+    - cd /var/www/deploy
+    - echo "Install dependencies for monorepo" && pnpm install --no-frozen-lockfile
+    - echo "Install dependencies and build Next.js" && cd apps/web && pnpm install --no-frozen-lockfile && pnpm run build
+    - echo "Install dependencies for build Nest.js" && cd ../api && pnpm install --no-frozen-lockfile && pnpm run build
+    - echo "Install dependencies for build Broadcast-Parser" && cd ../broadcasts-parser && pnpm install --no-frozen-lockfile && pnpm run build
+  only:
+    - main
+  tags:
+    - production
+
+Start Service Production:
+  stage: run
+  script:
+  - echo "Restart or start api pm2 procces" && cd /var/www/deploy/apps/api
+  - pm2 restart api || pm2 start pnpm --name "api" -- start:prod
+  - echo "Restart or start web pm2 procces" && cd /var/www/deploy/apps/web 
+  - pm2 restart web || pm2 start pnpm --name "web" -- start
+  - echo "Restart or start web pm2 procces" && cd /var/www/deploy/apps/broadcasts-parser 
+  - pm2 restart broadcasts || pm2 start pnpm --name "broadcasts" -- start
+  only:
+    - main
+  tags:
+    - production
+
+Failure Event Production:
+  stage: failureEvent
+  script:
+    - curl -s -X POST https://api.telegram.org/bot$BOT_TOKEN/sendMessage -d parse_mode=HTML -d chat_id=$CHAT_ID -d text="❌ SCREENIFY-MAIN | Pipeline <b>failed</b> in commit -%0A<code>$CI_COMMIT_MESSAGE</code>%0A%0ACheck the details at <a href=\"$CI_PROJECT_URL/pipelines/$CI_PIPELINE_ID\">this link</a>."
+    - pm2 stop all || echo "Nothing to stop"
+  only:
+    - main
+  tags:
+    - production 
+  when: on_failure
+
+Success Event Production:
+  stage: successEvent
+  script:
+    - curl -s -X POST https://api.telegram.org/bot$BOT_TOKEN/sendMessage -d parse_mode=HTML -d chat_id=$CHAT_ID -d text="✅ SCREENIFY-MAIN | Pipeline <b>successfully</b> deployed for commit -%0A<code>$CI_COMMIT_MESSAGE</code>%0A%0ACheck the details at <a href=\"$CI_PROJECT_URL/pipelines/$CI_PIPELINE_ID\">this link</a>."
+  only:
+    - main
+  tags:
+    - production 
+  when: on_success
+
+Failure Event Development:
+  stage: failureEvent
+  script:
+    - curl -s -X POST https://api.telegram.org/bot$BOT_TOKEN/sendMessage -d parse_mode=HTML -d chat_id=$CHAT_ID -d text="❌ SCREENIFY-DEV | Pipeline <b>failed</b> in commit -%0A<code>$CI_COMMIT_MESSAGE</code>%0A%0ACheck the details at <a href=\"$CI_PROJECT_URL/pipelines/$CI_PIPELINE_ID\">this link</a>."
+    - pm2 stop all || echo "Nothing to stop"
+  only:
+    - dev
+  tags:
+    - development 
+  when: on_failure
+
+Success Event Development:
+  stage: successEvent
+  script:
+    - curl -s -X POST https://api.telegram.org/bot$BOT_TOKEN/sendMessage -d parse_mode=HTML -d chat_id=$CHAT_ID -d text="✅ SCREENIFY-DEV | Pipeline <b>successfully</b> deployed for commit -%0A<code>$CI_COMMIT_MESSAGE</code>%0A%0ACheck the details at <a href=\"$CI_PROJECT_URL/pipelines/$CI_PIPELINE_ID\">this link</a>."
+  only:
+    - dev
+  tags:
+    - development 
+  when: on_success

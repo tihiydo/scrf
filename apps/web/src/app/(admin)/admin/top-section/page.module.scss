@@ -1,0 +1,54 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+.container {
+}
+
+.title {
+	text-transform: uppercase;
+	font-family: fonts.$font-primary;
+	font-size: fonts.$size-4xl;
+	margin-bottom: 10px;
+}
+
+.select {
+	&__container {
+		width: 100% !important;
+	}
+
+	&__trigger {
+		width: 100%;
+	}
+}
+
+.films-select {
+	margin-top: 50px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 50px;
+}
+
+.selected-films {
+	grid-column: 2/4;
+
+	&__title {
+		margin-bottom: 12px;
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		font-size: fonts.$size-2xl;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		height: 290px;
+		overflow: auto;
+	}
+}
+
+.save {
+	margin-top: 100px !important;
+	display: flex;
+}

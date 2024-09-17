@@ -1,0 +1,43 @@
+@use '../variables/colors';
+
+.ant-table {
+	background: colors.$dark-main !important;
+	border-radius: 0px !important;
+
+	* {
+		color: inherit;
+	}
+}
+
+.ant-table-thead {
+	border-radius: 0px !important;
+}
+
+.ant-table-cell {
+	color: colors.$text-primary !important;
+	background: transparent !important;
+	border-bottom: 2px colors.$border solid !important;
+}
+
+th.ant-table-cell {
+	color: colors.$text-primary !important;
+	background: transparent !important;
+
+	&::before {
+		display: none;
+        background: colors.$border !important;
+        width: 2px !important;
+        height: 60% !important; 
+	}
+}
+
+td.ant-table-cell {
+	color: colors.$gray !important;
+	background: transparent !important;
+}
+
+td.ant-table-cell-row-hover {
+    background: colors.$active-bg !important;
+    color: colors.$text-primary !important;
+}
+

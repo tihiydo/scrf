@@ -1,0 +1,52 @@
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+
+
+.content {
+	display: flex;
+	flex-direction: column;
+	padding-top: 10px;
+	gap: 10px;
+
+	@media (min-width: breakpoints.$md) {
+		padding-top: 20px;
+		gap: 20px;
+	}
+
+	@media (min-width: breakpoints.$lg) {
+		padding-top: 30px;
+		gap: 30px;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		padding-top: 40px;
+		gap: 40px;
+	}
+}
+
+.item {
+
+    &__title {
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		margin-bottom: 10px;
+		font-size: fonts.$size-base;
+
+		@media (min-width: breakpoints.$md) {
+			font-size: fonts.$size-xl;
+			margin-bottom: 20px;
+		}
+
+		@media (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-2xl;
+			margin-bottom: 25px;
+		}
+
+		@media (min-width: breakpoints.$xl) {
+			font-size: fonts.$size-3xl;
+			margin-bottom: 30px;
+		}
+	}
+}

@@ -1,0 +1,37 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+
+.container {
+	width: 100%;
+	justify-content: space-between;
+	position: absolute;
+	z-index: 1000;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	display: none;
+
+	@media screen and (min-width: breakpoints.$md) {
+		display: flex;
+	}
+}
+
+.arrow-button {
+	z-index: 1000;
+	color: colors.$text-primary;
+
+	&__icon {
+		width: 60px;
+		height: 60px;
+		stroke-width: 1px;
+		color: colors.$gray;
+	}
+
+	&_left {
+		transform: translateX(-100%);
+	}
+
+	&_right {
+		transform: translateX(100%);
+	}
+}

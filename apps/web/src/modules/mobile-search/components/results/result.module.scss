@@ -1,0 +1,30 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/colors';
+
+.results {
+	display: flex;
+	flex-direction: column;
+    gap: 20px;
+}
+
+.section {
+	&__title {
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		margin-bottom: 5px;
+		font-size: fonts.$size-lg;
+
+		@media (min-width: breakpoints.$md) {
+			padding: 0 15px;
+			font-size: fonts.$size-2xl;
+			margin-bottom: 8px;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+}

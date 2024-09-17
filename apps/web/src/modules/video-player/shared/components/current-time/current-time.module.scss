@@ -1,0 +1,37 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.runtime {
+	display: flex;
+	align-items: center;
+    white-space: nowrap;
+	font-size: fonts.$size-2xs;
+	gap: 6px;
+
+
+	@media (min-width: breakpoints.$sm) {
+		font-size: fonts.$size-xs;
+	}
+
+	@media (min-width: breakpoints.$lg) {
+		font-size: fonts.$size-sm;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		font-size: fonts.$size-base;
+	}
+}
+
+
+.skeleton {
+	display: flex;
+	align-items: center;
+    white-space: nowrap;
+	font-size: fonts.$size-2xs;	
+	gap: 6px;
+	&__item {
+		width: 40px;
+		height: 14px;
+		border-radius: 5px;
+	}
+}

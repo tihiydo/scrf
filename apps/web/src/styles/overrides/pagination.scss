@@ -1,0 +1,21 @@
+@use '../variables/colors';
+
+.ant-pagination-item {
+	border: 2px solid colors.$border !important;
+	background: colors.$dark-main !important;
+
+	& a {
+        color: colors.$gray !important;
+    }
+}
+
+.ant-pagination-item-active {
+	border: 2px solid colors.$border-primary !important;
+
+	& a {
+		color: colors.$text-primary !important;
+	}
+}
+.ant-pagination-item-1 {
+	color: #ccc !important;
+}

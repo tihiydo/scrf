@@ -1,0 +1,15 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+
+
+.modal {
+    width: 750px !important;
+    z-index: 999999999 !important;
+    &__title {
+        font-family: fonts.$font-primary;
+        text-transform: uppercase;
+        font-size: fonts.$size-2xl;
+    }
+}
+

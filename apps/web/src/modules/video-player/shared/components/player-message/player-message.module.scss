@@ -1,0 +1,69 @@
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+
+
+
+.message {
+	position: absolute;
+	z-index: 9999999999999;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 5%;
+	max-width: 220px;
+
+	@media (min-width: breakpoints.$sm) {
+		max-width: 440px;
+		left: 10%;
+	}
+
+	@media (min-width: breakpoints.$lg) {
+		max-width: 600px;
+	}
+
+	@media (min-width: breakpoints.$xxl) {
+		max-width: 800px;
+	}
+
+	&__title {
+		font-family: fonts.$font-primary;
+		font-size: fonts.$size-base;
+		text-transform: uppercase;
+		color: colors.$text-primary;
+		line-height: 130%;
+		padding-bottom: 6px;
+
+		@media (min-width: breakpoints.$sm) {
+			font-size: fonts.$size-xl;
+			padding-bottom: 8px;
+		}
+
+		@media (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-3xl;
+		}
+
+		@media (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-4xl;
+			padding-bottom: 12px;
+		}
+	}
+
+	&__description {
+		line-height: 160%;
+		color: colors.$gray;
+		font-size: fonts.$size-xs;
+
+		@media (min-width: breakpoints.$sm) {
+			font-size: fonts.$size-base;
+		}
+
+		@media (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-lg;
+		}
+
+		@media (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-xl;
+		}
+	}
+}

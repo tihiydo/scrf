@@ -1,0 +1,54 @@
+@use "@/styles/variables/fonts";
+@use "@/styles/variables/colors";
+@use "@/styles/variables/breakpoints";
+@use "@/styles/variables/mixins";
+
+.accordion {
+	width: 100%;
+	position: relative;
+
+	&__header {
+		@include mixins.flex($justify: space-between);
+		@include mixins.account-block();
+		padding: 30px;
+		cursor: pointer;
+		transition: 0.4s;
+
+		@media (max-width: 600px) {
+			padding: 15px 20px;
+			border-radius: 5px;
+		}
+
+		& h5 {
+			font-family: fonts.$font-primary;
+			text-transform: uppercase;
+			font-size: 30px;
+
+			@media (max-width: 600px) {
+				font-size: 18px;
+			}
+		}
+
+		& svg {
+			transform: rotate(-180deg);
+			transition: 0.4s;
+		}
+
+		&_shown {
+			margin-bottom: 20px;
+
+			& svg {
+				transform: rotate(0deg);
+			}
+		}
+	}
+
+	&__content {
+		display: none;
+		width: 100%;
+
+		&_shown {
+			display: block;
+		}
+	}
+}

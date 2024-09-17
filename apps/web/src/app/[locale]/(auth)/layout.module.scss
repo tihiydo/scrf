@@ -1,0 +1,65 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+
+.wrapper {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 0 5px;
+}
+
+.content {
+	height: 100%;
+	flex: 1;
+
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding: 10px;
+		background: rgba(255, 255, 255, 3%);
+		backdrop-filter: blur(14px);
+		border-radius: 10px;
+		margin: 0 auto;
+		max-width: 620px;
+		min-height: 520px;
+
+		@media (min-width: breakpoints.$xl) {
+			max-width: 800px;
+		}
+	}
+}
+
+.go-back {
+	height: auto;
+	margin-top: 1rem;
+	margin-bottom: 1.5rem;
+	@media (min-width: breakpoints.$md) {
+		margin-top: 1.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	&__button {
+		width: fit-content;
+	}
+}
+
+.footer {
+	margin-top: 120px;
+}
+
+.text-logo {
+	display: none;
+
+	@media (min-width: breakpoints.$md) {
+		display: block;
+	}
+}
+
+.bottom-bar {
+	display: block;
+	@media (min-width: breakpoints.$md) {
+		display: none;
+	}
+}

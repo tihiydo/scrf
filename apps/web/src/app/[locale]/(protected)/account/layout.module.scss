@@ -1,0 +1,90 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/mixins';
+
+.account {
+	&__wrapper {
+		margin-top: 77px;
+		margin-bottom: 250px;
+
+		@media (max-width: breakpoints.$xxl) {
+			margin-top: 77px;
+			margin-bottom: 50px;
+		}
+
+		@media (max-width: 600px) {
+			margin-top: 77px;
+			margin-bottom: 50px;
+		}
+	}
+
+	&__back {
+		@include mixins.flex($justify: flex-start, $gap: 10px);
+		color: white;
+		& h4 {
+			font-family: fonts.$font-primary;
+			text-transform: uppercase;
+			font-size: 45px;
+		}
+	}
+
+	&__hero {
+		height: 418px !important;
+		&::before {
+			background: linear-gradient(0deg, #0d141f 0%, rgba(13, 20, 31, 0.4) 100%);
+		}
+	}
+
+	&__name {
+		font-family: fonts.$font-primary;
+		text-transform: uppercase;
+		font-size: 85px;
+		margin-bottom: 98px;
+
+		@media (max-width: 1200px) {
+			display: none;
+		}
+	}
+
+	&__content {
+		@include mixins.flex($justify: flex-start, $align: flex-start, $gap: 72px);
+
+		@media (max-width: 1200px) {
+			justify-content: center;
+			flex-direction: column;
+			gap: 30px;
+		}
+	}
+
+	&__actions {
+		@include mixins.flex(
+			$justify: flex-start,
+			$align: flex-start,
+			$direction: column,
+			$gap: 60px
+		);
+		max-width: 450px;
+		width: 100%;
+
+		@media (max-width: 1200px) {
+			gap: 30px;
+		}
+	}
+}
+
+.bread-crumbs {
+	margin-bottom: 6px;
+
+	@media (min-width: breakpoints.$md) {
+		margin-bottom: 10px;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		margin-bottom: 16px;
+	}
+
+	@media (min-width: breakpoints.$xxl) {
+		margin-bottom: 20px;
+	}
+}

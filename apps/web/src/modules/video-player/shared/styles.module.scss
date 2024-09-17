@@ -1,0 +1,22 @@
+@use '@/styles/variables/breakpoints';
+
+.container {
+	outline: none;
+	width: 100%;
+	position: relative;
+	height: 100%;
+	padding: 20px 20px;
+
+    
+	@media (min-width: breakpoints.$md) {
+		padding: 20px 50px;
+	}
+
+	@media (min-width: breakpoints.$lg) {
+		// padding: 50px 90px;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		padding: 20px 100px;
+	}
+}

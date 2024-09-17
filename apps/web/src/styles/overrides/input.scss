@@ -1,0 +1,29 @@
+@use '../variables/colors';
+@use '../variables/breakpoints';
+@use '../variables/fonts';
+
+
+
+// input.ant-input {
+// 	color: colors.$text-primary !important;
+// 	border-color: colors.$gray;
+//     border-radius: 5px;
+
+// 	&::placeholder {
+// 		color: colors.$gray !important;
+// 	}
+
+// 	&.ant-input-lg {
+// 		font-size: fonts.$size-xs;
+// 		padding: 0.75rem 1rem;
+
+// 		@media (min-width: breakpoints.$md) {
+// 			font-size: fonts.$size-sm;
+// 		}
+
+// 		@media (min-width: breakpoints.$lg) {
+// 			font-size: fonts.$size-base;
+// 			padding: 1rem 0.875rem;
+// 		}
+// 	}
+// }

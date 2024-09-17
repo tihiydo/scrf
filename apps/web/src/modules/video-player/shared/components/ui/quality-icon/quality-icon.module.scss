@@ -1,0 +1,30 @@
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+
+
+
+.quality {
+	width: 2rem;
+	height: 2rem;
+
+	text-transform: uppercase;
+	font-family: fonts.$font-primary;
+	border: 3px solid colors.$text-primary;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	font-size: fonts.$size-xs;
+
+	@media (min-width: breakpoints.$lg) {
+		font-size: fonts.$size-sm;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		font-size: fonts.$size-base;
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+}

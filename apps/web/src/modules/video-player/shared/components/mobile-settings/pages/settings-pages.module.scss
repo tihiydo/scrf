@@ -1,0 +1,84 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/fonts';
+
+.settings-page {
+	&__head {
+		display: flex;
+		gap: 5px;
+		margin-bottom: 12px;
+		margin-top: 10px;
+	}
+
+	&__title {
+		font-family: fonts.$font-primary;
+		line-height: 120%;
+		font-size: fonts.$size-ms;
+		text-transform: uppercase;
+	}
+
+	&__selected {
+		font-size: fonts.$size-sm;
+	}
+
+	&__list {
+		display: flex;
+		gap: 4px;
+		flex-direction: column;
+	}
+
+	&__option {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		font-size: fonts.$size-ms !important;
+	}
+}
+
+.main {
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	&__option {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		width: 100%;
+	}
+}
+
+.main-option {
+	&__info {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+	}
+
+	&__title {
+		font-family: fonts.$font-primary;
+		line-height: 120%;
+		font-size: fonts.$size-ms;
+		text-transform: uppercase;
+	}
+
+	&__icon {
+		width: 30px !important;
+		height: 30px !important;
+	}
+
+	&__value {
+		text-align: left;
+		text-transform: none;
+		font-size: fonts.$size-ms;
+
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+		line-clamp: 1;
+	}
+}
+
+

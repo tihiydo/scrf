@@ -1,0 +1,38 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+
+.container {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.input {
+	z-index: 99999 !important;
+	flex: 1;
+	background-color: colors.$primary-bg;
+	color: colors.$text-primary;
+	position: relative;
+	height: 40px;
+	padding: 0 10px;
+    line-height: 160%;
+	font-size: fonts.$size-ms;
+	width: 80%;
+
+	&:disabled {
+		color: transparentize(colors.$text-primary, 0.3);
+		cursor: default;
+	}
+
+	&::placeholder {
+		color: colors.$gray;
+	}
+}
+
+.clear {
+	&__icon {
+		width: 3rem;
+		height: 3rem;
+	}
+}

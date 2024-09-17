@@ -1,0 +1,83 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/colors';
+
+.section {
+	width: 100%;
+	background: rgba(255, 255, 255, 0.04);
+	-webkit-backdrop-filter: blur(14px);
+	backdrop-filter: blur(14px);
+	border-radius: 10px;
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	@media screen and (min-width: breakpoints.$lg) {
+		border-radius: 20px;
+	}
+
+	@media screen and (min-width: breakpoints.$xl) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+}
+
+.title {
+	font-weight: 900;
+	font-size: 30px;
+	text-transform: uppercase;
+	font-family: fonts.$font-primary;
+	margin-bottom: 10px;
+
+	@media screen and (min-width: breakpoints.$lg) {
+		font-size: fonts.$size-4xl;
+	}
+
+	@media screen and (min-width: breakpoints.$xl) {
+		margin-bottom: 20px;
+	}
+
+	@media screen and (min-width: breakpoints.$xxl) {
+		font-size: 50px;
+	}
+}
+
+.content {
+	display: grid;
+	grid-template-columns: 1fr;
+
+	@media screen and (min-width: breakpoints.$md) {
+		grid-template-columns: 12fr 11fr;
+		gap: 20px;
+	}
+
+	@media screen and (min-width: breakpoints.$lg) {
+		font-size: fonts.$size-4xl;
+		gap: 40px;
+	}
+
+	@media screen and (min-width: breakpoints.$xl) {
+		font-size: fonts.$size-4xl;
+		gap: 60px;
+	}
+
+	@media screen and (min-width: breakpoints.$xxl) {
+		font-size: fonts.$size-4xl;
+		gap: 150px;
+	}
+}
+
+.image {
+	object-fit: cover;
+	width: auto;
+	height: auto;
+}
+
+.image-container {
+	position: relative;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	overflow: hidden;
+}

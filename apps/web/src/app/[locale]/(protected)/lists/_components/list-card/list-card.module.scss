@@ -1,0 +1,57 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+
+.card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	background: #ffffff08;
+	backdrop-filter: blur(14px);
+	transition: box-shadow 0.2s ease;
+	height: 110px;
+	border-radius: 5px;
+	
+
+	@media screen and (min-width: breakpoints.$md) {
+		height: 180px;
+		border-radius: 10px;
+	}
+
+	@media screen and (min-width: breakpoints.$lg) {
+		border-radius: 20px;
+		height: 260px;
+	}
+	@media screen and (min-width: breakpoints.$xl) {
+		height: 320px;
+	}
+
+	&:hover {
+		// box-shadow: inset 0 0 15px colors.$dark-main;
+	}
+
+	&:hover &__title {
+		color: colors.$text-primary;
+	}
+
+	&__title {
+		color: colors.$gray;
+		transition: 0.2s ease;
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		font-size: fonts.$size-3xl;
+
+		@media screen and (min-width: breakpoints.$md) {
+			font-size: fonts.$size-4xl;
+		}
+
+		@media screen and (min-width: breakpoints.$lg) {
+		}
+		@media screen and (min-width: breakpoints.$xl) {
+			font-size: fonts.$size-5xl;
+		}
+		@media screen and (min-width: breakpoints.$xxl) {
+		}
+	}
+}

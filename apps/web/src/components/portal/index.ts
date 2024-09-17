@@ -1,0 +1,1 @@
+export { Portal, PortalRoot } from './portal.component'

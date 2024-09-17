@@ -1,0 +1,54 @@
+@use '@/styles/variables/colors';
+@use "src/styles/variables/fonts";
+
+.container {
+	position: relative;
+}
+
+.trigger {
+	transition: opacity 100ms;
+	font-family: fonts.$font-primary;
+	font-weight: 900;
+	font-size: fonts.$size-xl;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: colors.$text-primary;
+	opacity: 0.8;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+
+	&__icon-motion {
+		display: flex;
+		align-items: center;
+	}
+	&:hover {
+		color: white;
+	}
+}
+
+.popover {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+	position: absolute;
+	// transform: translateY(100%);
+    z-index: 101;
+	bottom: -12px;
+	background: colors.$dark-main;
+	padding: 4px;
+    border-radius: 5px;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+    transition-duration: 150ms;
+
+	&__icon {
+		width: 20px;
+		height: 20px;
+	}
+
+}

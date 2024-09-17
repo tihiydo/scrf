@@ -1,0 +1,104 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.container {
+	position: relative;
+}
+
+.trigger {
+}
+
+.popover {
+	position: absolute;
+	overflow-y: auto;
+	max-height: 150px;
+
+	&__top-left {
+		left: 0;
+		transform: translateY(-100%);
+		top: -20px;
+	}
+
+	&__top-right {
+		right: 0;
+		transform: translateY(-100%);
+		top: -20px;
+	}
+
+	&__bottom-left {
+		transform: translateY(100%);
+		left: 0;
+		bottom: -20px;
+	}
+
+	&__bottom-right {
+		transform: translateY(100%);
+		right: 0;
+		bottom: -20px;
+	}
+}
+
+.dropdown {
+	background-color: colors.$dark-main;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.item {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 6px 10px;
+	gap: 10px;
+	color: colors.$text-primary;
+	transition-duration: 150ms;
+
+	white-space: nowrap;
+	font-size: fonts.$size-xs;
+	@media (min-width: breakpoints.$lg) {
+		font-size: fonts.$size-sm;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		font-size: fonts.$size-base;
+	}
+
+	&:hover {
+		background-color: colors.$primary;
+		color: colors.$dark-main;
+	}
+
+	&_active {
+	}
+}
+
+.dot {
+	flex-shrink: 0;
+	border-radius: 100%;
+	border: 3px solid currentColor;
+
+	background-color: currentColor;
+	width: 8px;
+	height: 8px;
+
+	@media (min-width: breakpoints.$sm) {
+		width: 10px;
+		height: 10px;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		width: 12px;
+		height: 12px;
+		border-width: 3px;
+	}
+
+	&_active {
+		background-color: transparent;
+	}
+}

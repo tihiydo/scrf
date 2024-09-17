@@ -1,0 +1,18 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+
+.return-btn {
+	color: colors.$gray;
+    font-size: fonts.$size-sm;
+    transition: color 100ms;
+	align-items: center;
+	display: flex;
+	gap: 0.75rem;
+    
+	&:hover {
+		color: colors.$text-primary;
+	}
+
+	&__icon {
+	}
+}

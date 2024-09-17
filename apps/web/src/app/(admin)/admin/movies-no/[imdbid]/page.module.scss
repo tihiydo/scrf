@@ -1,0 +1,17 @@
+@use '@/styles/variables/fonts';
+
+.title-other {
+    margin-bottom: 30px;
+    font-size: fonts.$size-4xl;
+	text-transform: uppercase;
+	font-family: fonts.$font-primary;
+    line-height: 115%;
+}
+
+.title-audio {
+	font-size: fonts.$size-2xl;
+	text-transform: uppercase;
+	font-family: fonts.$font-primary;
+    line-height: 115%;
+    margin-bottom: 20px;
+}

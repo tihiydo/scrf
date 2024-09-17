@@ -1,0 +1,43 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.popover {
+	position: static !important;
+
+	@media (min-width: breakpoints.$md) {
+		position: relative !important;
+	}
+
+	&__content {
+		right: 0px;
+		bottom: -5px;
+		left: 0px;
+		padding: 0 20px;
+
+		@media (min-width: breakpoints.$md) {
+			right: 0px;
+			padding: 0 0px;
+
+			left: auto;
+		}
+	}
+}
+
+.btn {
+	width: fit-content !important;
+	height: fit-content !important;
+	padding: 4px;
+	@media (min-width: breakpoints.$md) {
+		padding: 8px;
+	}
+}
+
+.icon {
+	width: 35px;
+	height: 35px;
+	@media (min-width: breakpoints.$md) {
+		width: 36px;
+		height: 36px;
+	}
+}

@@ -1,0 +1,120 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/mixins';
+
+.settings {
+	@include mixins.flex(
+		$justify: flex-start,
+		$align: flex-start,
+		$direction: column,
+		$gap: 20px
+	);
+	padding-top: 70px;
+	max-width: 904px;
+	width: 100%;
+
+	@media (max-width: 1200px) {
+		padding-top: 0;
+		max-width: unset;
+	}
+
+	&__title {
+		font-family: fonts.$font-primary;
+		text-transform: uppercase;
+		font-size: 50px;
+
+		@media (max-width: 1200px) {
+			display: none;
+		}
+	}
+
+	&__content {
+		@include mixins.flex(
+			$justify: flex-start,
+			$align: flex-start,
+			$direction: column,
+			$gap: 30px
+		);
+		width: 100%;
+	}
+
+	&__action {
+		@include mixins.account-block();
+		@include mixins.flex(
+			$justify: flex-start,
+			$align: flex-start,
+			$direction: column,
+			$gap: 20px
+		);
+		width: 100%;
+		padding: 30px 30px 40px;
+
+		@media (max-width: breakpoints.$xs) {
+			gap: 10px;
+			padding: 20px 25px;
+		}
+
+		& h4 {
+			font-family: fonts.$font-primary;
+			text-transform: uppercase;
+			font-size: 30px;
+
+			@media (max-width: breakpoints.$xs) {
+				font-size: 16px;
+			}
+		}
+
+		& p {
+			font-family: fonts.$font-secondary;
+			font-size: 16px;
+
+			@media (max-width: breakpoints.$xs) {
+				font-size: fonts.$size-sm;
+			}
+		}
+
+		&__changeButton,
+		&__deleteButton {
+			width: 100%;
+			font-size: 24px !important;
+			line-height: 28.8px !important;
+			padding: 13px 0 !important;
+			height: 100% !important;
+			max-width: 180px;
+
+			@media (max-width: breakpoints.$xs) {
+				max-width: 120px;
+				font-size: 16px !important;
+				line-height: 19.2px !important;
+			}
+		}
+
+		&__deleteButton {
+			background: #f83440;
+			color: #f2f2f2;
+			transition: 0.4s;
+
+			&:hover {
+				background: #f83440 !important;
+				opacity: 0.8;
+			}
+		}
+	}
+}
+
+.bread-crumbs {
+	margin-bottom: 6px;
+
+	@media (min-width: breakpoints.$md) {
+		margin-bottom: 10px;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		margin-bottom: 16px;
+	}
+
+	@media (min-width: breakpoints.$xxl) {
+		margin-bottom: 20px;
+	}
+}

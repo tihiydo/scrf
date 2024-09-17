@@ -1,0 +1,100 @@
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+.collections {
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap-reverse;
+	column-gap: 20px;
+	row-gap: 4px;
+	margin-bottom: 10px;
+
+	@media (min-width: breakpoints.$md) {
+		margin-bottom: 20px;
+	}
+	
+	@media (min-width: breakpoints.$xxl) {
+		margin-bottom: 30px;
+	}
+	
+	&__title {
+		font-size: fonts.$size-base;
+		font-family: fonts.$font-primary;
+		text-transform: uppercase;
+		line-height: 115%;
+
+		@media (min-width: breakpoints.$sm) {
+			font-size: fonts.$size-xl;
+		}
+
+		@media (min-width: breakpoints.$xl) {
+			font-size: fonts.$size-2xl;
+		}
+
+		@media (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-3xl;
+		}
+	}
+}
+
+.link {
+	$animation-dur: 150ms;
+	display: flex;
+	align-items: center;
+	color: colors.$gray;
+	transition-duration: $animation-dur;
+
+	&:hover {
+		color: colors.$text-primary;
+	}
+
+	&__text {
+		color: currentColor;
+		font-size: fonts.$size-xs;
+		font-weight: 400;
+		line-height: 160%;
+
+		@media (min-width: breakpoints.$sm) {
+			font-size: fonts.$size-sm;
+		}
+
+		@media (min-width: breakpoints.$xl) {
+			font-size: fonts.$size-base;
+		}
+
+		@media (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-lg;
+		}
+	}
+
+	&:hover &__icon {
+		transform: translate(3px);
+	}
+
+	&__icon {
+		transition-duration: $animation-dur;
+		color: currentColor;
+		width: 20px;
+		height: 20px;
+		stroke-width: 1px;
+
+		@media (min-width: breakpoints.$sm) {
+			width: 22px;
+			height: 22px;
+		}
+
+		@media (min-width: breakpoints.$xl) {
+			width: 26px;
+			height: 26px;
+		}
+
+		@media (min-width: breakpoints.$xxl) {
+			width: 30px;
+			height: 30px;
+		}
+	}
+}

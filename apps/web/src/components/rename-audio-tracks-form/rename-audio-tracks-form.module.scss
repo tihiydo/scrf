@@ -1,0 +1,129 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+
+.container {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	background-color: colors.$primary-bg;
+	padding: 20px;
+	border-radius: 20px;
+}
+
+.item {
+	padding: 30px 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: 100%;
+	transition-duration: 100ms;
+	border-bottom: 1px solid colors.$gray;
+	position: relative;
+
+	&:hover {
+		background-color: lighten(colors.$primary-bg, 10%);
+	}
+
+	&__hidden {
+		background-color: transparentize(colors.$gray, 0.8);
+	}
+
+	&__hidden-icon {
+		width: 30px;
+		height: 30px;
+		color: colors.$gray;
+	}
+
+	&__title {
+		display: flex;
+		align-items: center;
+		gap: 25px;
+	}
+
+	&__title-text {
+		display: flex;
+		align-items: center;
+		font-size: fonts.$size-2xl;
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+	}
+}
+
+.head {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: 100%;
+	border-bottom: 1px solid colors.$gray;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+
+	&__title {
+		font-size: fonts.$size-3xl;
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+	}
+
+	&__rename {
+		font-size: fonts.$size-3xl;
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+	}
+}
+
+.rename-form {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+
+	&__select {
+		flex-grow: 1;
+		width: 300px;
+	}
+}
+
+.actions-menu {
+	&__list {
+		background-color: colors.$dark-main;
+		padding: 2px;
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__item {
+		height: 40px;
+		flex-shrink: 0;
+		flex-grow: 1;
+		min-height: 40px;
+		border-radius: 2.5px;
+		padding: 4px 10px;
+		min-width: 140px;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		transition-duration: 150ms;
+
+		&:hover {
+			background-color: colors.$primary;
+			color: colors.$dark-main;
+		}
+
+		&:active {
+			background-color: darken(colors.$primary, 10%);
+		}
+
+		&:disabled {
+			pointer-events: none;
+			opacity: 50%;
+		}
+	}
+
+	&__item-icon {
+	}
+}

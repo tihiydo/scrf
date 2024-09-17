@@ -1,0 +1,12 @@
+@use "@/styles/variables/fonts";
+
+@media screen and (max-width: 500px) 
+{
+    .title {
+    font-size: 36px;
+    }
+    .description
+    {
+        font-size: fonts.$size-sm
+    }
+}

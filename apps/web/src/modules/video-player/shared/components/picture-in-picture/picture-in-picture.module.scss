@@ -1,0 +1,43 @@
+@use '@/styles/variables/breakpoints';
+
+
+.btn {
+}
+
+.icon {
+	&__pip-disabled {
+		stroke-width: 3px;
+		width: 1.5rem;
+		height: 1.5rem;
+
+		@media (min-width: breakpoints.$lg) {
+			width: 2rem;
+			height: 2rem;
+		}
+
+		@media (min-width: breakpoints.$xl) {
+			width: 2.5rem;
+			height: 2.5rem;
+		}
+	}
+
+	&__pip-enabled {
+		width: 1.5rem;
+		height: 1.5rem;
+
+		@media (min-width: breakpoints.$sm) {
+			width: 2rem;
+			height: 2rem;
+		}
+
+		@media (min-width: breakpoints.$lg) {
+			width: 2.5rem;
+			height: 2.5rem;
+		}
+
+		@media (min-width: breakpoints.$xl) {
+			width: 3rem;
+			height: 3rem;
+		}
+	}
+}

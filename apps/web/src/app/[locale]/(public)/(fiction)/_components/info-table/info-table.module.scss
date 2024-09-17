@@ -1,0 +1,76 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/colors';
+
+
+.table {
+	// display: grid;
+	// grid-template-columns: 1fr;
+	&__item {
+	}
+
+	&__separator {
+		width: 100%;
+		height: 1px;
+		background-color: colors.$gray;
+	}
+}
+
+.table-item {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	@media screen and (min-width: breakpoints.$xl) {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	&__property-name {
+		font-family: fonts.$font-primary;
+		text-transform: uppercase;
+		font-size: fonts.$size-base;
+		line-height: 120%;
+		display: flex;
+		align-items: center;
+
+		@media screen and (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-base;
+		}
+
+		@media screen and (min-width: breakpoints.$xl) {
+			font-size: fonts.$size-xl;
+		}
+
+		@media screen and (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-2xl;
+		}
+	}
+	&__property-value {
+		display: flex;
+		align-items: center;
+		font-size: fonts.$size-ms;
+		@media screen and (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-lg;
+		}
+
+		@media screen and (min-width: breakpoints.$xl) {
+			font-size: fonts.$size-lg;
+		}
+
+		@media screen and (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-lg;
+		}
+	}
+
+	&__cast-property {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+	}
+}

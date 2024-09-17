@@ -1,0 +1,71 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.item {
+	display: flex;
+	gap: 10px;
+	padding: 6px;
+	border-radius: 5px;
+	transition-duration: 200ms;
+
+	@media (min-width: breakpoints.$md) {
+		padding: 10px;
+	}
+
+	&:hover {
+		background: transparentize(#fff, 0.8);
+	}
+
+	&:active {
+		background: transparentize(#fff, 0.7);
+	}
+}
+
+.image-container {
+	flex-shrink: 0;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.image {
+	object-fit: cover;
+}
+
+.content {
+}
+
+.title {
+	text-transform: uppercase;
+	font-family: fonts.$font-primary;
+	line-height: 115%;
+	font-size: fonts.$size-sm;
+
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+
+	@media (min-width: breakpoints.$md) {
+		font-size: fonts.$size-xl;
+	}
+}
+
+.descr {
+	margin-top: 8px;
+	font-size: fonts.$size-xs;
+	line-height: 115%;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+    line-clamp: 3;
+
+	@media (min-width: breakpoints.$md) {
+		font-size: fonts.$size-base;
+	}
+}

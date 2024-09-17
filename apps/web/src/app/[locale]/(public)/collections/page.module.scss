@@ -1,0 +1,99 @@
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+
+.page {
+	margin-bottom: 110px;
+}
+
+.title {
+	position: relative;
+	display: flex;
+	align-items: center;
+	color: colors.$gray;
+	gap: 10px;
+	margin-bottom: 20px;
+
+	@media screen and (min-width: breakpoints.$xxl) {
+		margin-bottom: 30px;
+	}
+
+	&__text {
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		color: colors.$text-primary;
+		font-size: fonts.$size-3xl;
+
+		@media screen and (min-width: breakpoints.$md) {
+			font-size: fonts.$size-4xl;
+		}
+
+		@media screen and (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-5xl;
+		}
+	}
+
+	&__dot {
+		width: 10px;
+		height: 10px;
+		background-color: currentColor;
+		border-radius: 50%;
+	}
+
+	&__count {
+		color: currentColor;
+	}
+}
+
+.content {
+	background: #ffffff08;
+	backdrop-filter: blur(14px);
+	border-radius: 10px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+
+	@media screen and (min-width: breakpoints.$lg) {
+		border-radius: 20px;
+	}
+}
+
+.collections {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	margin-bottom: 30px;
+}
+
+.no-data {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: colors.$gray;
+
+	@media (min-width: breakpoints.$md) {
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+
+	&__icon {
+		width: 6rem;
+		height: 6rem;
+
+		@media (min-width: breakpoints.$md) {
+			width: 8rem;
+			height: 8rem;
+		}
+	}
+
+	&__text {
+		margin-top: 0.5rem;
+		font-size: fonts.$size-lg;
+
+		@media (min-width: breakpoints.$md) {
+			margin-top: 1rem;
+			font-size: fonts.$size-2xl;
+		}
+	}
+}

@@ -1,0 +1,33 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+.page {
+    height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3rem;
+}
+
+.icon {
+	font-size: 8rem;
+    color: colors.$red !important;
+}
+
+.title {
+	font-family: fonts.$font-primary;
+	text-transform: uppercase;
+	color: colors.$text-primary;
+	font-size: fonts.$size-4xl;
+    margin-bottom: 0.5rem;
+}
+
+.text {
+	color: colors.$gray;
+	font-size: fonts.$size-base;
+	max-width: 500px;
+}
+
+.logout-btn {
+	margin-top: 2rem;
+}

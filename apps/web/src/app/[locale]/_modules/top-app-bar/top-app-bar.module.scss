@@ -1,0 +1,113 @@
+@use 'src/styles/variables/breakpoints';
+@use 'src/styles/variables/colors';
+@use 'src/styles/variables/fonts';
+
+.logo {
+	display: flex;
+	align-items: center;
+	position: relative;
+	font-size: fonts.$size-2xl;
+	font-family: fonts.$font-primary;
+
+	@media (min-width: breakpoints.$sm) {
+		font-size: fonts.$size-3xl;
+	}
+}
+
+.header {
+	z-index: 100;
+	position: relative;
+	&__container {
+		margin-top: 10px;
+		margin-bottom: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		display: flex;
+		align-items:center;
+		position: relative;
+		justify-content: space-between;
+
+		@media (min-width: breakpoints.$md) {
+			padding-top: 20px;
+			padding-bottom: 20px;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.actions-mobile {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	@media (min-width: breakpoints.$md) {
+		display: none;
+	}
+}
+
+.actions-desktop {
+	display: none;
+	gap: 20px;
+	align-items: center;
+
+	@media (min-width: breakpoints.$md) {
+		display: flex;
+	}
+
+	&__subscription-btn {
+		display: block;
+	}
+
+	&__icons {
+		align-items: center;
+		gap: 10px;
+
+		display: none !important;
+		@media (min-width: breakpoints.$md) {
+			display: flex !important;
+		}
+	}
+
+	&__account {
+		display: none !important;
+		@media (min-width: breakpoints.$md) {
+			display: block !important;
+		}
+	}
+
+	&__search {
+		display: block;
+	}
+}
+
+.dropdown-menu {
+    position: relative;
+
+    .dropdown-toggle {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: black;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+
+        .dropdown-item {
+            padding: 12px 16px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: gray;
+            }
+        }
+    }
+
+    &:hover .dropdown-content {
+        display: block;
+    }
+}

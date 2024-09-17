@@ -1,0 +1,39 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.btn {
+	margin-top: 20px;
+	margin-left: auto !important;
+	display: flex;
+	width: 120px !important;
+	gap: 5px !important;
+	display: flex !important;
+
+	@media screen and (min-width: breakpoints.$md) {
+		width: 140px !important;
+	}
+
+	@media screen and (min-width: breakpoints.$xl) {
+		gap: 10px !important;
+		width: 160px !important;
+	}
+
+	@media screen and (min-width: breakpoints.$xxl) {
+		width: 180px !important;
+	}
+
+	&__motion {
+		display: flex;
+		align-items: center;
+	}
+
+	&__icon {
+	}
+}
+
+.motion {
+	// overflow-y: hidden;
+}
+
+.content {
+}

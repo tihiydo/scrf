@@ -1,0 +1,146 @@
+@use "@/styles/variables/colors";
+@use "@/styles/variables/fonts";
+@use "@/styles/variables/breakpoints";
+
+.container {
+	position: relative;
+	z-index: 30;
+}
+
+.slide-container {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: space-between;
+
+	padding-top: 30px;
+	padding-bottom: 40px;
+
+	@media screen and (min-width: breakpoints.$lg) {
+		flex-direction: row;
+
+		padding-top: 60px;
+		padding-bottom: 110px;
+	}
+
+	@media screen and (min-width: breakpoints.$xxl) {
+		padding-top: 80px;
+		padding-bottom: 130px;
+	}
+}
+
+.controls-container {
+	width: 100%;
+	justify-content: space-between;
+	position: absolute;
+	z-index: 1000;
+	top: 45%;
+	transform: translateY(-50%);
+	left: 0;
+	display: none;
+
+	@media screen and (min-width: breakpoints.$md) {
+		display: flex;
+		top: 50%;
+	}
+
+	@media screen and (min-width: breakpoints.$lg) {
+		top: 40%;
+	}
+
+	@media screen and (min-width: breakpoints.$xxl) {
+		top: 45%;
+	}
+}
+
+.arrow-button {
+	z-index: 1000;
+	color: colors.$text-primary;
+
+	&__icon {
+		width: 60px;
+		height: 60px;
+		stroke-width: 1px;
+		color: colors.$gray;
+	}
+
+	&_left {
+		transform: translateX(-100%);
+	}
+
+	&_right {
+		transform: translateX(100%);
+	}
+}
+
+.other {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 30px;
+
+	@media screen and (min-width: breakpoints.$lg) {
+		align-self: flex-end;
+		margin-bottom: 0;
+	}
+}
+
+.volume {
+	height: 100%;
+	padding: 6px;
+	height: fit-content;
+	width: fit-content;
+	&__icon {
+		stroke-width: 1px;
+		width: 30px;
+		height: 30px;
+
+		@media screen and (min-width: breakpoints.$lg) {
+			width: 35px;
+			height: 35px;
+		}
+
+		@media screen and (min-width: breakpoints.$xxl) {
+			width: 50px;
+			height: 50px;
+		}
+	}
+
+	svg {
+		display: block;
+	}
+}
+
+.age-category {
+	height: 100%;
+	font-weight: 300;
+	font-size: fonts.$size-lg;
+	padding-left: 8px;
+	width: 40px;
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(115, 115, 115, 0) 103.06%);
+	position: relative;
+	display: flex;
+	align-items: center;
+
+	@media screen and (min-width: breakpoints.$xl) {
+		width: 60px;
+		font-size: fonts.$size-xl;
+	}
+
+	@media screen and (min-width: breakpoints.$xxl) {
+		width: 70px;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 2px;
+		height: 100%;
+		background: #fff;
+	}
+}
+
+.bg-container {
+	z-index: -20;
+}

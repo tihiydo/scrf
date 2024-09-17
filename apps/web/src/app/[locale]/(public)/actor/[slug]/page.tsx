@@ -1,0 +1,201 @@
+import React, { useEffect } from "react";
+import classes from "./page.module.scss";
+import GoBackLink from "@/components/go-back-link/go-back-link.component";
+import Image from "next/image";
+import {
+  HeroBackground,
+  ImageBackground,
+} from "@/components/ui/hero-background";
+import open from "@/assets/images/oppengay.png";
+import { apiServer } from "@/app/api/server";
+import { headers } from 'next/headers';
+import screenifyFallback from '@/assets/images/fallback.png'
+import classNames from "classnames";
+import { PictureFallback, PictureImage, PictureRoot } from "@/components/ui/picture";
+
+import { env } from '@/env'
+import { Metadata } from 'next'
+import { Personality } from "@/entities/pesonality";
+import WrapperBlock from "@/components/wrapper-block/wrapper-block";
+import { FictionSwiper } from "@/components/swipers";
+import { MinimalMovie } from "@/entities/movie";
+import { MinimalSerial } from "@/entities/serial";
+import ReadMore from "../../(fiction)/movie/[slug]/_components/main-section/_components/read-more";
+
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
+  const api = apiServer(headers)
+  const actorResponse = await api<Personality>(`/personality/${params.slug}`);
+  const actor = actorResponse.data;
+
+  return {
+    title: `Screenify | Actor | ${actor.personName}`,
+    description: actor.description,
+    openGraph: {
+      title: `Screenify | Actor | ${actor.personName}`,
+      description: actor.description,
+      images: {
+        url: actor.photoUrl ?? `${env.NEXT_PUBLIC_SITE_URL}/og-logo.png`,
+        alt: 'Screenify - Your Ultimate Streaming Destination',
+      },
+      url: env.NEXT_PUBLIC_SITE_URL + `/${params.locale}` + '/actor' + `/${actor.imdbid}`,
+      siteName: 'Screenify'
+    },
+  }
+}
+
+type Props = {
+  params: {
+    slug: string;
+    locale: string;
+  };
+};
+
+type FictionItem = any;
+
+const ActorPage = async ({ params: { slug } }: Props) => {
+  const api = apiServer(headers);
+  const { data: info } = await api(`/personality/${slug}`);
+  const moviesResponse = await api(`/personality/nm4043111`);
+
+  // const fictions: FictionItem[] = info.studiosFictions.map(({ movie }: { movie: MinimalMovie }) => {
+  //   if (!movie) return null;
+
+  //   return {
+  //     imdbid: movie.imdbid,
+  //     title: movie.title,
+  //     portraitImage: movie.portraitImage,
+  //     rating: movie.rating,
+  //     releaseDate: movie.releaseDate,
+  //     releaseYear: movie.releaseYear,
+  //     runtime: movie.runtime,
+  //     type: 'movie'
+  //   };
+  // }).filter(Boolean);
+
+
+  // const fictionsSerial: FictionItem[] = info.casts.map(({ serial }: { serial: MinimalSerial }) => {
+  //   if (!serial) return null;
+
+  //   return {
+  //     imdbid: serial.imdbid,
+  //     title: serial.title,
+  //     portraitImage: serial.portraitImage,
+  //     rating: serial.rating,
+  //     releaseDate: serial.releaseDate,
+  //     releaseYear: serial.releaseYear,
+  //     episodesCount: serial.episodesCount,
+  //     runtime: null,
+  //     type: 'serial'
+  //   };
+  // }).filter(Boolean);
+  const fictions: FictionItem[] = info.casts
+    .filter((cast: any) => cast.movie)
+    .map(({ movie }: { movie: MinimalMovie }) => ({
+      imdbid: movie.imdbid,
+      title: movie.title,
+      portraitImage: movie.portraitImage,
+      rating: movie.rating,
+      releaseDate: movie.releaseDate,
+      releaseYear: movie.releaseYear,
+      runtime: movie.runtime,
+      type: 'movie' as const
+    }));
+
+  const fictionsSerials: FictionItem[] = info.casts
+    .filter((cast: any) => cast.serial)
+    .map(({ serial }: { serial: MinimalSerial }) => ({
+      imdbid: serial.imdbid,
+      title: serial.title,
+      portraitImage: serial.portraitImage,
+      rating: serial.rating,
+      releaseDate: serial.releaseDate,
+      releaseYear: serial.releaseYear,
+      episodesCount: serial.episodesCount,
+      type: 'serial' as const,
+    }));
+
+  console.log('12')
+  // console.log(fictionsSerial)
+  console.log(info);
+
+  return (
+    <div className={classNames(classes.paddings)}>
+      <HeroBackground>
+        <ImageBackground src={open} fill alt="hero image" />
+      </HeroBackground>
+      <div className={classNames(classes.about, 'container')}>
+        <GoBackLink />
+        <h1>{info?.personName}</h1>
+      </div>
+      <WrapperBlock className={classNames(classes.actorCard, 'container')}>
+        <div className={classes.firstBlockActorInfo}>
+          <PictureRoot>
+            <PictureImage
+              src={info?.photoUrl}
+              width={600}
+              height={540}
+              alt=""
+            />
+            <PictureFallback>
+              <Image
+                src={screenifyFallback}
+                width={600}
+                height={540}
+                alt=""
+              />
+            </PictureFallback>
+          </PictureRoot>
+        </div>
+        <div className={classes.secondBlockActorInfo}>
+          <h2>ABOUT</h2>
+          <div>
+            <div className={classes.pseudoTable}>
+              <div>
+                <h3>COUNTRY:</h3>
+                <p>No data</p>
+              </div>
+              <div>
+                <h3>AGE:</h3>
+                <p>No data</p>
+              </div>
+            </div>
+            <div className={classes.textBlock}><ReadMore description={info?.description} maxChars={info?.description.length > 1500 ? 1500 : 1500} /></div>
+          </div>
+        </div>
+      </WrapperBlock>
+
+
+      {
+        fictions.length !== 0 ? (
+          <WrapperBlock className={classNames('container', classes.swiper)}>
+            <div className={classes.item} key={classes.title}>
+              <h5 className={classes.itemTitle}>MOVIE</h5>
+              <FictionSwiper fictions={fictions} />
+            </div>
+          </WrapperBlock>
+        ) : (
+          null
+        )
+      }
+
+      {
+        fictionsSerials.length !== 0 ? (
+          <WrapperBlock className={classNames('container', classes.swiper)}>
+            <div className={classes.item} key={classes.title}>
+              <h5 className={classes.itemTitle}>SERIAL</h5>
+              {/* <FictionSwiper fictions={fictionsSerial} /> */}
+            </div>
+          </WrapperBlock>
+        ) : (
+          null
+        )
+      }
+
+
+    </div>
+  );
+};
+
+export default ActorPage;

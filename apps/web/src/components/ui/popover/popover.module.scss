@@ -1,0 +1,51 @@
+.container {
+	position: relative;
+}
+
+.popover {
+	position: absolute;
+	overflow: hidden;
+    z-index: 101;
+
+	&__top-left {
+		left: 0;
+		transform: translateY(-100%);
+		top: -10px;
+	}
+
+	&__top-center {
+		left: 50%;
+		transform: translateY(-100%) translateX(-50%);
+		top: -10px;
+	}
+
+
+	&__top-right {
+		right: 0;
+		transform: translateY(-100%);
+		top: -10px;
+	}
+
+	&__bottom-left {
+		transform: translateY(100%);
+		left: 0;
+		bottom: -10px;
+	}
+
+	&__bottom-center {
+		transform: translateY(100%) translateX(-50%);
+		left: 50%;
+		bottom: -10px;
+	}
+
+	
+	&__bottom-right {
+		transform: translateY(100%);
+		right: 0;
+		bottom: -10px;
+	}
+}
+
+.trigger {
+
+}

@@ -1,0 +1,98 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/fonts';
+
+.card {
+	border-radius: 10px;
+	background-color: colors.$dark-main;
+	width: 100%; // Займає повну ширину контейнера
+	max-width: 100%; // Встановити максимальну ширину картки за умовчанням
+	padding: 40px 55px;
+
+	@media screen and (min-width: breakpoints.$sm) {
+		width: fit-content;
+		max-width: none;
+	}
+}
+
+.title {
+	font-family: fonts.$font-primary;
+	text-transform: uppercase;
+	line-height: 115%;
+	margin-bottom: 20px;
+	font-size: fonts.$size-base;
+
+	@media screen and (min-width: breakpoints.$sm) {
+		margin-bottom: 30px;
+		font-size: fonts.$size-3xl;
+	}
+}
+
+.advantages {
+	&__accent {
+		font-size: fonts.$size-sm;
+		line-height: 115%;
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		color: colors.$primary;
+
+		@media screen and (min-width: breakpoints.$sm) {
+			font-size: fonts.$size-2xl;
+		}
+	}
+	& * {
+		white-space: nowrap;
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		margin-bottom: 30px;
+		font-family: fonts.$font-secondary;
+		font-weight: 300;
+		line-height: 100%;
+		gap: 8px;
+		margin-bottom: 18px;
+		font-size: 14px;
+
+		@media screen and (min-width: breakpoints.$sm) {
+			font-size: fonts.$size-base;
+			margin-bottom: 30px;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.buy {
+	margin-top: 30px;
+
+	@media screen and (min-width: breakpoints.$sm) {
+		margin-top: 50px;
+	}
+
+	&__price {
+		font-family: fonts.$font-secondary;
+		font-weight: 300;
+		font-size: fonts.$size-ms;
+
+		@media screen and (min-width: breakpoints.$sm) {
+			font-size: fonts.$size-lg;
+		}
+	}
+
+	&__btn {
+		width: 130px;	
+		margin-top: 10px;
+		height: 2.75rem;
+		font-size: fonts.$size-base;
+
+		@media screen and (min-width: breakpoints.$sm) {
+			height: 3.375rem;
+			width: 180px;
+			font-size: fonts.$size-2xl;
+		}
+	}
+}

@@ -1,0 +1,57 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/mixins';
+
+.plans {
+	@include mixins.flex($gap: 35px);
+	flex-wrap: wrap;
+	background-color: rgba(255, 255, 255, 0.03);
+	border-radius: 20px;
+	width: 100%;
+	padding: 50px 0;
+
+	@media (max-width: 600px) {
+		padding: 20px;
+		border-radius: 10px;
+	}
+
+	&__action {
+		@include mixins.flex(
+			$justify: flex-start,
+			$align: flex-sart,
+			$direction: column
+		);
+		margin-bottom: 100px;
+
+		& h2 {
+			font-family: fonts.$font-primary;
+			text-transform: uppercase;
+			font-size: fonts.$size-8xl;
+			line-height: 102px;
+		}
+
+		@media (max-width: 600px) {
+			margin-bottom: 96px;
+			padding-left: 18px;
+
+			& h2 {
+				font-size: 45px;
+				line-height: 54px;
+			}
+		}
+	}
+
+	&__wrapper {
+		margin-bottom: 300px;
+		
+		@media (max-width: 600px) {
+			margin-bottom: 50px;
+		}
+	}
+}
+
+.paddingPage {
+	margin-top: 190px;
+}
+	

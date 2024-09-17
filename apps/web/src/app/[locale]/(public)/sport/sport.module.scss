@@ -1,0 +1,50 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+
+.buttons
+{
+    display: none;
+    @media (min-width: 1280px) 
+    {
+        display: block;
+    }
+}
+
+
+.buttonsSlider
+{
+    display: none;
+    @media (max-width: 1280px) 
+    {
+        display: block;
+    }
+}
+
+.title
+{
+    font-size: 50px;
+    font-family: fonts.$font-primary;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.sliderButtons
+{
+    display: flex;
+    flex-flow: row;
+    column-gap: 10px;
+}
+
+.sliderButton
+{
+    font-size: 24px;
+    padding: 10px 12px 10px 10px;
+    font-family: fonts.$font-primary;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    column-gap: 7px;
+}

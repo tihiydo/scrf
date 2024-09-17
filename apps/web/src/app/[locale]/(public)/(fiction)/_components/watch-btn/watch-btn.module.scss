@@ -1,0 +1,76 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/colors';
+
+.container {
+	position: relative;
+	height: fit-content;
+}
+
+.button {
+	display: flex;
+	font-weight: 900;
+	font-size: fonts.$size-2xl;
+	gap: 10px !important;
+	padding: 10px 30px 10px 30px;
+
+	&__watch {
+		width: 177px;
+		height: 54px !important;
+		line-height: 28px;
+		@media screen and (max-width: breakpoints.$md) {
+			gap: 5px !important;
+			width: 120px;
+			height: 45px !important;
+			font-size: fonts.$size-ms !important;
+			padding: 10px 20px 10px 20px;
+		}
+	}
+
+	&__svg {
+		width: 25px;
+		height: 25px;
+		@media screen and (max-width: breakpoints.$md) {
+			width: 19px;
+			height: 19px;
+		}
+	}
+}
+
+.tip {
+	width: fit-content;
+	white-space: nowrap;
+	padding: 0.5rem;
+	font-size: fonts.$size-2xs;
+	line-height: 125%;
+	border-radius: 5px;
+	background-color: transparentize(#000, 0.25);
+}
+
+.popover {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(100%);
+	z-index: 10;
+
+	&__tooltip {
+		bottom: -5px;
+
+		display: none;
+		@media (min-width: breakpoints.$md) {
+			display: flex;
+		}
+	}
+}
+
+
+.play-icon {
+	height: 25px;
+	width: 25px;
+	@media(min-width: breakpoints.$md){
+		
+	}
+}

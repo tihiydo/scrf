@@ -1,0 +1,16 @@
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+.opt {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+    height: 40px;
+}
+
+.icon {
+}
+
+.content {
+}

@@ -1,0 +1,45 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+
+
+.actions-menu {
+	&__list {
+		background-color: colors.$dark-main;
+		padding: 2px;
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__item {
+		height: 40px;
+		flex-shrink: 0;
+		flex-grow: 1;
+		min-height: 40px;
+		border-radius: 2.5px;
+		padding: 4px 10px;
+		min-width: 140px;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		transition-duration: 150ms;
+
+		&:hover {
+			background-color: colors.$primary;
+			color: colors.$dark-main;
+		}
+
+		&:active {
+			background-color: darken(colors.$primary, 10%);
+		}
+
+		&:disabled {
+			pointer-events: none;
+			opacity: 50%;
+		}
+	}
+
+	&__item-icon {
+	}
+}

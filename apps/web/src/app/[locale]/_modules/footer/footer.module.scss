@@ -1,0 +1,76 @@
+@use "@/styles/variables/fonts";
+@use "@/styles/variables/colors";
+
+.footer {
+	&__content {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(6, 1fr);
+		margin-bottom: 30px;
+	}
+}
+
+.footer-section {
+	&__title {
+		text-transform: uppercase;
+		font-family: fonts.$font-secondary;
+		font-size: fonts.$size-lg;
+		font-weight: 400;
+		margin-bottom: 0.75rem;
+
+		@media (max-width: 576px) {
+			font-size:fonts.$size-ms;
+		}
+	}
+}
+
+.nav-section {
+
+	&__item {
+		margin-bottom: 0.625rem;
+		font-size: 10px;
+		&:last-child {
+			margin-bottom: 0px;
+		}
+	}
+
+	&__item-content {
+		transition-duration: 100ms;
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		font-size: fonts.$size-xl;
+		color: colors.$gray;
+
+		@media (max-width: 576px) {
+			font-size: fonts.$size-ms;
+		}
+
+		&:hover {
+			color: colors.$text-primary;
+		}
+	}
+
+	&__dropdown {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+}
+
+.contact-section {
+	&__item {
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		color: colors.$text-primary;
+		font-size: fonts.$size-xl;
+		margin-bottom: 0.625rem;
+
+		@media (max-width: 576px) {
+			font-size: fonts.$size-ms;
+		}
+
+		&:last-child {
+			margin-bottom: 0px;
+		}
+	}
+}

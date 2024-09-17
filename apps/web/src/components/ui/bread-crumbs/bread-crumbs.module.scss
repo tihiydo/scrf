@@ -1,0 +1,62 @@
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+
+.bread-crumbs {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+
+.link {
+	font-weight: 400;
+	line-height: 170%;
+	text-transform: uppercase;
+	font-size: fonts.$size-sm;
+	color: colors.$gray;
+
+	border-radius: 2.5px;
+	transition-duration: 150ms;
+
+	&:hover {
+        text-decoration: underline;
+		// background: #ffffff08;
+		// backdrop-filter: blur(14px);
+	}
+
+	@media screen and (min-width: breakpoints.$sm) {
+		font-size: fonts.$size-sm;
+	}
+
+	@media screen and (min-width: breakpoints.$lg) {
+		font-size: fonts.$size-base;
+	}
+
+	@media screen and (min-width: breakpoints.$xxl) {
+		font-size: fonts.$size-lg;
+	}
+}
+
+.separator {
+	width: 24px;
+	height: 24px;
+	flex-shrink: 0;
+	color: colors.$gray;
+	margin-bottom: 2px;
+
+	@media screen and (min-width: breakpoints.$sm) {
+		width: 24px;
+		height: 24px;
+	}
+
+	@media screen and (min-width: breakpoints.$lg) {
+		width: 26px;
+		height: 26px;
+		margin-bottom: 0px;
+	}
+
+	@media screen and (min-width: breakpoints.$xxl) {
+		width: 30px;
+		height: 30px;
+	}
+}

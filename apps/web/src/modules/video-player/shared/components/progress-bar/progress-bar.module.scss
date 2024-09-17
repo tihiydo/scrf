@@ -1,0 +1,70 @@
+@use '@/styles/variables/colors';
+
+.progress-bar {
+	position: relative;
+	width: 100%;
+	height: 10px;
+}
+
+.slider {
+	cursor: pointer;
+	z-index: 1000;
+	height: 5px;
+	&__track {
+		height: 5px;
+		background-color: transparent;
+
+		&_0 {
+			z-index: 15;
+			background-color: colors.$primary;
+		}
+	}
+
+	&__thumb {
+		z-index: 20 !important;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		transform: translateY(-50%);
+		top: 50%;
+		border: 4px solid colors.$primary;
+		background: #fff;
+
+		// transition-duration: 150ms;
+		// transition-property: width height;
+		outline: none;
+
+		&_active {
+			width: 24px;
+			height: 24px;
+		}
+	}
+}
+
+.watched {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: colors.$primary;
+	z-index: 100;
+}
+
+.loaded {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 5px;
+	background-color: colors.$text-primary;
+	z-index: 10;
+}
+
+.duration {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 5px;
+	width: 100%;
+	background-color: colors.$gray;
+	z-index: 5;
+}

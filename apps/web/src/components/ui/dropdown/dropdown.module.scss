@@ -1,0 +1,56 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.dropdown {
+	background-color: colors.$primary-bg;
+	border-radius: 5px;
+	padding: 4px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.item {
+	cursor: pointer;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 12px;
+	gap: 10px;
+	color: colors.$text-primary;
+	transition-duration: 150ms;
+	border-radius: 2.5px;
+
+	white-space: nowrap;
+	font-size: fonts.$size-xs;
+	@media (min-width: breakpoints.$lg) {
+		font-size: fonts.$size-sm;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		font-size: fonts.$size-base;
+	}
+
+	&:disabled {
+		color: transparentize(colors.$text-primary, 0.3);
+		cursor: default;
+	}
+
+	&:hover {
+		background: darken(colors.$primary, 3%);
+		color: colors.$dark-main;
+
+		&:disabled {
+			background: darken(colors.$primary, 20%);
+		}
+	}
+
+	&:active {
+		background: darken(colors.$primary, 10%);
+	}
+
+	&_active {
+	}
+}

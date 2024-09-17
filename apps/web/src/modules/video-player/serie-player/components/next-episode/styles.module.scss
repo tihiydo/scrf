@@ -1,0 +1,54 @@
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+
+.btn {
+	color: colors.$text-primary;
+
+	&:disabled {
+		color: transparentize(colors.$gray, .25);
+        cursor: default;
+	}
+}
+
+.icon {
+	stroke-width: 2px;
+
+	width: 1.5rem;
+	height: 1.5rem;
+
+	@media (min-width: breakpoints.$sm) {
+		width: 2rem;
+		height: 2rem;
+	}
+
+	@media (min-width: breakpoints.$lg) {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		width: 3rem;
+		height: 3rem;
+	}
+}
+
+.popover-menu {
+	background-color: colors.$dark-main;
+
+	width: fit-content;
+	padding: 6px;
+	border-radius: 2.5px;
+}
+
+.next {
+	&__text {
+		font-size: fonts.$size-sm;
+		white-space: nowrap;
+	}
+
+	&__title {
+		font-size: fonts.$size-sm;
+		white-space: nowrap;
+	}
+}

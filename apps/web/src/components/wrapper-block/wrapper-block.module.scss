@@ -1,0 +1,30 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/colors';
+
+.section {
+	width: 100%;
+	background: rgba(255, 255, 255, 0.04);
+	-webkit-backdrop-filter: blur(3px);
+	backdrop-filter: blur(3px);
+	margin: 0 auto;
+	border-radius: 10px;
+
+	padding-top: 30px;
+    padding-bottom: 30px;
+    background: hsla(0, 0%, 100%, 0.04);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+		// background-color: red;
+
+	@media screen and (min-width: breakpoints.$lg) {
+		border-radius: 20px;
+	}
+
+	@media screen and (min-width: breakpoints.$xl) {
+		border-radius: 20px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+}

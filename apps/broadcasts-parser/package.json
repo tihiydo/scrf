@@ -1,0 +1,24 @@
+{
+  "name": "broadcasts-parser",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node dist/index.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@types/node": "^22.2.0",
+    "dotenv": "^16.4.5",
+    "pg": "^8.11.5",
+    "tsx": "^4.16.5",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.6"
+  }
+}

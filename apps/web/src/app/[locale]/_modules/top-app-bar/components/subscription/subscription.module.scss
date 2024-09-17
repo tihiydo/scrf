@@ -1,0 +1,127 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+
+.container {
+	position: relative;
+}
+
+.btn {
+	font-size: fonts.$size-base !important;
+
+	@media (min-width: breakpoints.$sm) {
+		font-size: fonts.$size-xl !important;
+	}
+}
+
+.popover {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(100%);
+
+	&__subscription {
+		bottom: -5px;
+		left: auto;
+		right: 0;
+		transform: translateY(100%);
+
+		@media (min-width: breakpoints.$md) {
+			left: 50%;
+			transform: translateX(-50%) translateY(100%);
+			right: auto;
+		}
+	}
+
+	&__tooltip {
+		bottom: -5px;
+
+		display: none;
+		@media (min-width: breakpoints.$md) {
+			display: flex;
+		}
+	}
+}
+
+.subscription-content {
+	position: relative;
+	padding: 10px;
+	background: colors.$dark-main;
+	border-radius: 4px;
+	width: 320px;
+
+	@media (min-width: breakpoints.$xs) {
+		width: 360px;
+		padding: 12px;
+	}
+
+	@media (min-width: breakpoints.$md) {
+		width: 450px;
+		padding: 16px 11px 16px 24px;
+	}
+
+	&__title {
+		font-family: fonts.$font-primary;
+		text-transform: uppercase;
+		line-height: 115%;
+		line-height: 115%;
+		font-size: fonts.$size-lg;
+		padding-right: 30px;
+
+		@media (min-width: breakpoints.$xs) {
+			font-size: fonts.$size-xl;
+			padding-right: 40px;
+		}
+
+		@media (min-width: breakpoints.$md) {
+			font-size: fonts.$size-2xl;
+			padding-right: 50px;
+		}
+	}
+
+	&__descr {
+		margin-top: 0.3rem;
+		font-size: fonts.$size-xs;
+
+		@media (min-width: breakpoints.$xs) {
+			margin-top: 0.5rem;
+
+			font-size: fonts.$size-sm;
+		}
+
+		@media (min-width: breakpoints.$md) {
+			font-size: fonts.$size-base;
+		}
+	}
+
+	&__highlight {
+		font-family: fonts.$font-primary;
+		color: colors.$red;
+	}
+
+	&__close {
+		top: 10px;
+		right: 10px;
+		position: absolute;
+		padding: 5px;
+		width: fit-content !important;
+		height: fit-content !important;
+
+		@media (min-width: breakpoints.$md) {
+			top: 14px;
+			right: 14px;
+		}
+	}
+}
+
+.tip {
+	width: fit-content;
+	white-space: nowrap;
+	padding: 0.5rem;
+	font-size: fonts.$size-2xs;
+	line-height: 125%;
+	border-radius: 5px;
+	background-color: transparentize(#000, 0.25);
+}

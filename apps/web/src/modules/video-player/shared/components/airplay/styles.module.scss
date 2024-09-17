@@ -1,0 +1,27 @@
+@use '@/styles/variables/breakpoints';
+
+
+.btn {
+}
+
+.icon {
+	stroke-width: 2px;
+
+	width: 1.5rem;
+	height: 1.5rem;
+
+	@media (min-width: breakpoints.$sm) {
+		width: 1.6rem;
+		height: 1.6rem;
+	}
+
+	@media (min-width: breakpoints.$lg) {
+		width: 2rem;
+		height: 2rem;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+}

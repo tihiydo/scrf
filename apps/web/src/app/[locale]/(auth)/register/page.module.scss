@@ -1,0 +1,44 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+
+.register {
+	max-width: 450px;
+	width: 100%;
+	padding: 15px 0;
+
+	@media (min-width: breakpoints.$md) {
+		padding: 30px 0;
+	}
+
+	&__title {
+		font-size: fonts.$size-3xl;
+		font-family: fonts.$font-primary;
+		text-transform: uppercase;
+		text-align: left;
+		margin-bottom: 1.25rem;
+	}
+}
+
+.login {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 25px;
+
+	&__text {
+		font-size: fonts.$size-sm;
+	}
+
+	&__link {
+		font-size: fonts.$size-sm;
+		font-weight: 400;
+		color: colors.$primary;
+		opacity: 0.9;
+		transition: opacity 100ms;
+
+		&:hover {
+			text-decoration: underline;
+			opacity: 1;
+		}
+	}
+}

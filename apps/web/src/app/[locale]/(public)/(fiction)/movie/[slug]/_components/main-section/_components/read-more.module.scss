@@ -1,0 +1,24 @@
+@use '@/styles/variables/colors';
+
+
+.container {
+    display: flex;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: colors.$gray;
+    &__active {
+        color:colors.$primary;
+        
+    }
+    &:hover {
+        color: white;
+    }
+}
+.icon-motion {
+	display: flex;
+	align-items: center;
+}

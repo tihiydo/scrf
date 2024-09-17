@@ -1,0 +1,43 @@
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+
+.container {
+	position: relative;
+}
+
+.btn {
+	color: colors.$text-primary;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+
+	&__text {
+		font-size: fonts.$size-base;
+		display: none;
+
+		@media (min-width: breakpoints.$md) {
+			font-size: fonts.$size-sm;
+			display: block;
+		}
+
+		@media (min-width: breakpoints.$xl) {
+			font-size: fonts.$size-base;
+			display: block;
+		}
+	}
+}
+
+.quality {
+	&__item {
+		white-space: nowrap;
+		font-size: fonts.$size-xs;
+		@media (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-sm;
+		}
+
+		@media (min-width: breakpoints.$xl) {
+			font-size: fonts.$size-base;
+		}
+	}
+}

@@ -1,0 +1,177 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.container {
+	position: relative;
+}
+
+.menu {
+	position: absolute;
+	transform: translateY(100%);
+	bottom: -5px;
+	left: 0;
+	border-radius: 5px;
+	// border: 1px solid colors.$gray;
+	background: colors.$dark-main;
+	width: 100%;
+	z-index: 1000;
+	overflow: hidden;
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		overflow-y: auto;
+		max-height: 200px;
+	}
+}
+
+.option {
+	display: grid;
+	grid-template-columns: 24px 1fr;
+	// gap:10px;
+	color: colors.$gray;
+	text-align: left;
+	border-radius: 2.5px;
+	transition-duration: 150ms;
+	font-size: fonts.$size-xs;
+	padding: 10px 6px !important;
+	// min-height: 40px;
+	// height: 50px !important;
+	align-items: center;
+	justify-content: center;
+
+
+	&:hover {
+		color: colors.$dark-main;
+		background-color: transparentize(#fff, 0.4);
+	}
+
+	// &_selected {
+	// 	background: darken(colors.$primary, 8%);
+	// 	color: colors.$dark-main;
+	// }
+
+	@media screen and (min-width: breakpoints.$md) {
+		font-size: fonts.$size-sm;
+		padding: 0px 8px;
+	}
+
+	@media screen and (min-width: breakpoints.$xl) {
+		font-size: fonts.$size-base;
+		padding: 0px 10px;
+	}
+
+	&__select-all {
+		font-size: fonts.$size-sm;
+		display: grid;
+		grid-template-columns: 24px 1fr;
+		@media screen and (min-width: breakpoints.$md) {
+			font-size: fonts.$size-sm;
+			padding: 0px 8px;
+		}
+	
+		@media screen and (min-width: breakpoints.$xl) {
+			font-size: fonts.$size-base;
+			padding: 0px 10px;
+		}	
+	}
+}
+
+.trigger {
+	border: 2px solid colors.$gray;
+	height: 40px;
+	border-radius: 5px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	color: colors.$gray;
+	background: colors.$primary-bg;
+	padding: 0.325rem 0.75rem 0.325rem 0.4rem;
+	font-size: fonts.$size-xs;
+
+	&:disabled {
+		cursor: not-allowed;
+		border-color: transparentize(colors.$gray, 0.4);
+		color: transparentize(colors.$gray, 0.4);
+	}
+
+	@media screen and (min-width: breakpoints.$md) {
+		font-size: fonts.$size-sm;
+		padding: 0.4rem 1rem 0.4rem 0.5rem;
+		height: 45px;
+	}
+
+	@media screen and (min-width: breakpoints.$xl) {
+		font-size: fonts.$size-base;
+		padding: 0.5rem 1.25rem 0.5rem 0.625rem;
+		height: 54px;
+	}
+
+	&_loading {
+		cursor: progress !important;
+	}
+
+	&__icon {
+		width: 1.25rem;
+		height: 1.25rem;
+		@media screen and (min-width: breakpoints.$md) {
+			width: 1.25rem;
+			height: 1.25rem;
+		}
+
+		@media screen and (min-width: breakpoints.$xl) {
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+	}
+}
+
+.icon-motion {
+	display: flex;
+	align-items: center;
+}
+
+.placeholder {
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.search {
+	padding-left: 10px;
+	padding-right: 10px;
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	width: 100%;
+	overflow: hidden;
+	&__icon {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+
+	&__input {
+		font-size: fonts.$size-sm;
+		background: transparent;
+		padding: 0;
+		border: 0;
+		outline: none;
+		color: colors.$gray;
+		padding: 5px 5px;
+		width: 100%;
+		flex: 1;
+		&::placeholder {
+			color: transparentize(colors.$gray, 0.3);
+		}
+	}
+
+	&__separator {
+		width: 100%;
+		height: 1px;
+		background: colors.$gray;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+}

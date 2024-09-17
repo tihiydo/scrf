@@ -1,0 +1,181 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.buttons {
+	display: none;
+	@media (min-width: 1280px) {
+		display: block;
+	}
+}
+
+.buttonsSlider {
+	display: none;
+	position: relative;
+	@media (max-width: 1280px) {
+		display: block;
+	}
+}
+
+.title {
+	margin-bottom: 30px;
+}
+
+.sliderButtons {
+	display: flex;
+	flex-flow: row;
+	column-gap: 10px;
+}
+
+.sliderButton {
+	padding: 10px 12px 10px 10px;
+	background: rgba(255, 255, 255, 0.03);
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	column-gap: 7px;
+	cursor: pointer;
+
+	transition: background-color 0.3s ease, color 0.3s ease !important; 
+
+	&:hover {
+			color: #0d141f;
+			background-color: rgba(255, 255, 255, 0.6);
+	}
+
+	&__card {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+	}
+}
+
+.sliderButtonActive {
+	background: #faff00 !important;
+	color: #0d141f !important;
+}
+.sliderButtonText {
+	white-space: nowrap;
+	font-size: 24px;
+	font-family: fonts.$font-primary;
+
+	@media (max-width: 1024px) {
+		font-size: 16px;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 12px;
+	}
+
+	@media (max-width: 500px) {
+		font-size: 16px;
+	}
+}
+
+.swiperButtonIcon {
+	flex-shrink: 0;
+}
+
+.card {
+	cursor: pointer;
+	max-width: 448px;
+	height: 277px;
+	border-radius: 5px;
+	background: #ffffff08;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	padding: 30px;
+	row-gap: 15px;
+
+	@media (max-width: 1200px) {
+		height: 238px;
+	}
+
+	h3 {
+		font-size: 24px;
+		text-transform: uppercase;
+		font-weight: 900;
+		font-family: fonts.$font-primary;
+
+		@media (max-width: 1200px) {
+			font-size: 14px;
+		}
+	}
+}
+
+.teamSection {
+	position: relative;
+	margin-top: 10px;
+	height: max-content;
+	display: flex;
+	justify-content: space-between;
+}
+
+.teams {
+	font-size: 18px;
+	display: flex;
+	flex-flow: column;
+	row-gap: 10px;
+
+	div {
+		display: flex;
+		align-items: center;
+		flex-flow: row;
+		column-gap: 13px;
+
+		@media (max-width: 1200px) {
+			font-size: fonts.$size-sm;
+		}
+	}
+}
+
+.live {
+	font-weight: 800;
+	font-size: 18px;
+	display: flex;
+	flex-flow: row;
+	column-gap: 7px;
+	align-self: center;
+
+	> :nth-child(1) {
+		color: #00ff1a;
+	}
+}
+
+.categories {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	&__icon {
+		width: 50px;
+		height: 50px;
+		// filter: brightness(250%);
+	}
+}
+
+.button-watch {
+	width: 155px;
+	height: 55px !important;
+	font-size: fonts.$size-2xl !important;
+	@media (max-width: breakpoints.$md) {
+		width: 120px;
+		height: 45px !important;
+		font-size: fonts.$size-ms !important;
+	}
+	&__svg {
+		height: 25px !important;
+		width: 25px !important;
+
+		@media (max-width: breakpoints.$md) {
+			width: 19px !important;
+			height: 19px !important;
+			font-size: fonts.$size-ms !important;
+		}
+	}
+}

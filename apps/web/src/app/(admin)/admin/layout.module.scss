@@ -1,0 +1,12 @@
+.layout {
+    margin: 25px;
+    min-height: 100%;
+    display: flex;
+    gap: 40px;
+
+
+    &__content {
+        flex: 1;
+        min-height: 100%;
+    }
+}

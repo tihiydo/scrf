@@ -1,0 +1,154 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.page {
+	margin-bottom: 50px;
+	z-index: 999;
+
+	@media (min-width: breakpoints.$lg) {
+		margin-bottom: 100px;
+	}
+}
+
+.top-content {
+	position: relative;
+}
+
+.menu {
+	@media (max-width: breakpoints.$md) {
+		max-width: 500px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.title {
+	margin-bottom: 16px;
+
+	@media (min-width: breakpoints.$md) {
+		margin-bottom: 20px;
+	}
+
+	@media (min-width: breakpoints.$lg) {
+		margin-bottom: 25px;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		margin-bottom: 30px;
+	}
+}
+
+.total {
+	text-transform: uppercase;
+	font-weight: 300;
+	margin-top: 20px;
+	display: none;
+	@media screen and (min-width: breakpoints.$lg) {
+		display: block;
+	}
+}
+
+.filters {
+	background: transparent;
+	margin-bottom: 20px !important;
+	width: fit-content;
+	@media (min-width: breakpoints.$md) {
+		background: colors.$primary-bg;
+	}
+}
+
+.content {
+	margin-top: 30px;
+	background: colors.$primary-bg;
+	border-radius: 10px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	@media (min-width: breakpoints.$md) {
+		padding-bottom: 20px;
+		padding-top: 20px;
+		border-radius: 20px;
+		gap: 20px;
+	}
+
+	@media (min-width: breakpoints.$lg) {
+		padding-bottom: 30px;
+		padding-top: 30px;
+		gap: 30px;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		gap: 40px;
+	}
+
+	&__tag-title {
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		margin-bottom: 10px;
+		font-size: fonts.$size-base;
+
+		@media (min-width: breakpoints.$md) {
+			font-size: fonts.$size-xl;
+			margin-bottom: 20px;
+		}
+
+		@media (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-2xl;
+			margin-bottom: 25px;
+		}
+
+		@media (min-width: breakpoints.$xl) {
+			font-size: fonts.$size-3xl;
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.grid {
+	background-color: colors.$primary-bg;
+	border-radius: 20px;
+	margin-top: 20px;
+	container-type: inline-size;
+	container-name: fiction-grid;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.no-data {
+	margin-top: 50px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: colors.$gray;
+
+	@media (min-width: breakpoints.$md) {
+		margin-top: 100px;
+	}
+
+	&__icon {
+		width: 6rem;
+		height: 6rem;
+
+		@media (min-width: breakpoints.$md) {
+			width: 8rem;
+			height: 8rem;
+		}
+	}
+
+	&__text {
+		margin-top: 0.5rem;
+		font-size: fonts.$size-lg;
+
+		@media (min-width: breakpoints.$md) {
+			margin-top: 1rem;
+			font-size: fonts.$size-2xl;
+		}
+	}
+}

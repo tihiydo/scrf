@@ -1,0 +1,38 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+
+.link {
+    --hover-duration: 150ms;
+
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	font-family: fonts.$font-secondary;
+	color: colors.$gray;
+	text-transform: uppercase;
+	font-size: fonts.$size-sm;
+	transition-duration: var(--hover-duration);
+
+	@media (min-width: breakpoints.$md) {
+		font-size: fonts.$size-base;
+	}
+
+	@media (min-width: breakpoints.$xxl) {
+		font-size: fonts.$size-lg;
+	}
+
+	&:hover {
+		color: colors.$text-primary;
+	}
+
+	&__icon {
+		position: relative;
+		transition-duration: var(--hover-duration);
+	}
+
+	&:hover &__icon {
+		translate: -0.2rem;
+		color: colors.$primary;
+	}
+}

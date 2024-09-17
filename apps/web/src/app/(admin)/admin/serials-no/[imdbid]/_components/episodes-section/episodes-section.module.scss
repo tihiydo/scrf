@@ -1,0 +1,43 @@
+@use "@/styles/variables/fonts";
+@use "@/styles/variables/colors";
+@use "@/styles/variables/breakpoints";
+@use "@/styles/variables/mixins";
+
+
+
+.episodes {
+	margin-top: 20px;
+
+	&__header {
+		@include mixins.flex($justify: flex-start, $align: flex-start, $direction: column, $gap: 30px);
+		padding-left: 62px;
+		margin-bottom: 20px;
+
+		@media (max-width: 703px) {
+			gap: 10px;
+			padding-left: 18px;
+			margin-bottom: 10px;
+		}
+
+		& h2 {
+			font-family: fonts.$font-primary;
+			font-size: 50px;
+			text-transform: uppercase;
+			line-height: 60px;
+
+			@media (max-width: 703px) {
+				font-size: 30px;
+				line-height: 36px;
+			}
+		}
+	}
+
+	&__list {
+		@include mixins.flex($justify: flex-start, $align: flex-start, $direction: column, $gap: 30px);
+		width: 100%;
+
+		@media (max-width: 703px) {
+			gap: 10px;
+		}
+	}
+}

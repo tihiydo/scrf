@@ -1,0 +1,1 @@
+export const TAKE_ITEMS = 20;

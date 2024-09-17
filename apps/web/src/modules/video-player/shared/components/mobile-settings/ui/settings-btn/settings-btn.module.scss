@@ -1,0 +1,22 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+
+.btn {
+	transition-duration: 100ms;
+	color: colors.$text-primary;
+	text-transform: uppercase;
+	font-family: fonts.$font-primary;
+	font-size: fonts.$size-lg;
+	align-items: center;
+	border-radius: 5px;
+	padding: 0px 16px;
+	height: 40px;
+
+	&:hover {
+		background: transparentize(#fff, 0.8);
+	}
+
+	&:active {
+		background: transparentize(#fff, 0.7);
+	}
+}

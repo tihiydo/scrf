@@ -1,0 +1,25 @@
+@use '@/styles/variables/fonts';
+
+.registration-form {
+	&__submit-btn {
+		height: 50px !important;
+		width: 100%;
+        margin-top: 5px;
+
+		& * {
+			font-size: fonts.$size-lg;
+		}
+	}
+
+	&__label {
+        text-transform: uppercase;
+        line-height: 120%;
+		font-size: fonts.$size-lg;
+        font-family: fonts.$font-primary;
+	}
+
+	&__alert {
+		margin-bottom: 1.25rem !important;
+		display: block ;
+	}
+}

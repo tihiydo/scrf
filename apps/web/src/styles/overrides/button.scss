@@ -1,0 +1,21 @@
+@use '../variables/fonts';
+@use '../variables/colors';
+
+button.ant-btn {
+	border-radius: 5px !important;
+	transition-duration: 100ms;
+	height: inherit;
+
+	&.ant-btn-primary {
+		& span {
+			font-family: fonts.$font-primary;
+			text-transform: uppercase;
+			color: colors.$dark-main;
+		}
+	}
+
+	&.ant-btn-default {
+		border-width: 2px;
+		border-style: solid;
+	}
+}

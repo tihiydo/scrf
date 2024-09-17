@@ -1,0 +1,14 @@
+@use '@/styles/variables/breakpoints';
+
+
+.wrapper {
+	display: none;
+
+	@media screen and (min-width: breakpoints.$md) {
+		display: block;
+	}
+}
+
+.results {
+	margin-top: 5px;
+}

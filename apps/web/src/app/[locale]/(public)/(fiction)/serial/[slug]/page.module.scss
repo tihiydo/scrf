@@ -1,0 +1,96 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+@use '@/styles/variables/mixins';
+
+.topSection {
+	margin-top: 150px;
+}
+
+.title {
+	font-family: fonts.$font-primary;
+	text-transform: uppercase;
+	font-size: fonts.$size-5xl;
+	line-height: 120%;
+
+	@media (min-width: breakpoints.$md) {
+		font-size: fonts.$size-6xl;
+	}
+
+	@media (min-width: breakpoints.$lg) {
+		font-size: fonts.$size-7xl;
+	}
+
+	@media (min-width: breakpoints.$xxl) {
+		font-size: fonts.$size-8xl;
+	}
+}
+
+.secondary-title {
+	margin-top: 10px;
+	font-family: fonts.$font-primary;
+	text-transform: uppercase;
+	font-size: fonts.$size-3xl;
+}
+
+.info-text {
+	margin-top: 10px;
+	font-size: fonts.$size-ms;
+	@media (min-width: breakpoints.$sm) {
+		font-size: fonts.$size-lg;
+	}
+}
+
+.actions {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	margin-top: 20px;
+}
+
+.sections {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.movieBlocks {
+	display: flex;
+	flex-flow: column;
+	row-gap: 30px;
+}
+
+.button {
+	display: flex;
+	font-weight: 900;
+	font-size: fonts.$size-2xl;
+	// opacity: 50%;
+	gap: 10px !important;
+	padding: 10px 30px 10px 30px;
+	width: 156px;
+	height: 54px;
+
+	@media screen and (max-width: breakpoints.$md) {
+		gap: 5px !important;
+		width: 120px;
+		height: 45px;
+		font-size: fonts.$size-ms !important;
+		padding: 10px 20px 10px 20px;
+	}
+}
+
+.bread-crumbs {
+	margin-bottom: 6px;
+
+	@media (min-width: breakpoints.$md) {
+		margin-bottom: 10px;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		margin-bottom: 16px;
+	}
+
+	@media (min-width: breakpoints.$xxl) {
+		margin-bottom: 20px;
+	}
+}

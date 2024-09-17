@@ -1,0 +1,46 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+.page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 450px;
+	width: 100%;
+	padding: 30px 0;
+
+	&__icon {
+		font-size: 3rem;
+		color: colors.$primary !important;
+		margin-bottom: 10px;
+	}
+
+	&__icon_error {
+		color: colors.$red !important;
+	}
+
+	&__icon_pending {
+		color: colors.$gray !important;
+	}
+
+	&__error-alert {
+		margin-bottom: 1rem !important;
+	}
+
+	&__title {
+		font-size: fonts.$size-3xl;
+		font-family: fonts.$font-primary;
+		text-transform: uppercase;
+		text-align: left;
+		margin-bottom: 0.5rem;
+	}
+
+	&__button {
+		width: 100%;
+		height: 50px !important;
+	}
+
+	&__button-link {
+		width: 100%;
+	}
+}

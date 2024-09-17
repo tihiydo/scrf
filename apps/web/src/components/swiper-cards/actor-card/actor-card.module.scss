@@ -1,0 +1,92 @@
+@use "@/styles/variables/mixins";
+@use "@/styles/variables/fonts";
+
+.actor {
+	@include mixins.flex($direction: column, $gap: 20px);
+	max-width: 266px;
+	width: 100%;
+	position: relative;
+
+	@media (max-width: 700px) {
+		gap: 10px;
+	}
+
+	@media screen and (min-width: 500px) {
+		&:hover {
+			& .actor__overlay {
+				display: flex;
+				background: #000000cc;
+			}
+
+			& .actor__readButton {
+				opacity: 1;
+			}
+		}
+	}
+
+	@media (hover: none) and (pointer: coarse) {
+		&:hover {
+		  & .actor__overlay {
+			display: block;
+			background:none;
+		  }
+	
+		  & .actor__readButton {
+			opacity: 0;
+		  }
+		}
+	  }
+
+
+
+	&__readButton {
+		position: absolute;
+		text-align: center;
+		opacity: 0;
+		transition: opacity 0.35s ease;
+		height: 55px;
+		width: 180px;
+		font-size: 24px;
+
+		@media (max-width: 1024px) {
+			height: 45px;
+			width: 120px;
+			font-size: 16px;
+		}
+	}
+
+	&__overlay {
+		@include mixins.flex($direction: column);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0);
+		transition: background 0.5s ease;
+		max-height: 260px;
+
+		@media (max-width: 700px) {
+			max-height: 180px;
+		}
+	}
+
+	& img {
+		object-fit: cover;
+		border-radius: 5px;
+
+		@media (max-width: 700px) {
+			max-height: 180px;
+		}
+	}
+
+	&__name {
+		font-family: fonts.$font-secondary;
+		font-size: 18px;
+		text-align: center;
+
+		@media (max-width: 700px) {
+			font-size: fonts.$size-ms;
+		}
+	}
+}

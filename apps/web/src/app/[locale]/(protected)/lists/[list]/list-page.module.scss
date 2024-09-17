@@ -1,0 +1,117 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+@use '@/styles/variables/breakpoints';
+
+.page {
+	margin-bottom: 50px;
+
+	@media screen and (min-width: breakpoints.$md) {
+		margin-top: 20px;
+		margin-bottom: 75px;
+	}
+	@media screen and (min-width: breakpoints.$xl) {
+		margin-top: 25px;
+		margin-bottom: 100px;
+	}
+
+	@media screen and (min-width: breakpoints.$xxl) {
+		margin-top: 30px;
+	}
+}
+
+.header {
+	margin-bottom: 20px !important;
+}
+
+.title {
+	font-family: fonts.$font-primary;
+	text-transform: uppercase;
+	line-height: 120%;
+	font-size: fonts.$size-5xl;
+
+	@media (min-width: breakpoints.$lg) {
+		font-size: fonts.$size-6xl;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		font-size: fonts.$size-7xl;
+	}
+
+	@media (min-width: breakpoints.$xxl) {
+		font-size: fonts.$size-8xl;
+	}
+}
+
+.content {
+	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+
+.fictions {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: colors.$primary-bg;
+	background: #ffffff08;
+	backdrop-filter: blur(14px);
+	border-radius: 20px;
+	&__title {
+		font-size: fonts.$size-3xl;
+		font-family: fonts.$font-primary;
+		text-transform: uppercase;
+		line-height: 120%;
+
+		@media (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-4xl;
+		}
+
+		@media (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-5xl;
+		}
+	}
+
+	&__swiper {
+		margin-top: 30px;
+	}
+}
+
+.hero-background {
+	height: 418px !important;
+	&::before {
+		bottom: -20px !important;
+		background: linear-gradient(180deg, #0d141f 0%, rgba(13, 20, 31, 0) 100%);
+		z-index: 20;
+	}
+
+	&::after {
+		display: none;
+	}
+
+	&__overlay {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 10;
+
+		background: rgba(0, 0, 0, 0.8);
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.bread-crumbs {
+	margin-bottom: 6px;
+
+	@media (min-width: breakpoints.$md) {
+		margin-bottom: 10px;
+	}
+
+	@media (min-width: breakpoints.$xl) {
+		margin-bottom: 16px;
+	}
+
+	@media (min-width: breakpoints.$xxl) {
+		margin-bottom: 20px;
+	}
+}

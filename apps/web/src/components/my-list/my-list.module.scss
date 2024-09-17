@@ -1,0 +1,50 @@
+@use '@/styles/variables/colors';
+
+.container {
+	position: relative;
+}
+
+.trigger {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+
+	&__icon {
+	}
+
+	&__icon-motion {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.popover {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+	position: absolute;
+	transform: translateY(100%);
+    z-index: 101;
+	bottom: -12px;
+	background: colors.$dark-main;
+	padding: 4px;
+    border-radius: 5px;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+    transition-duration: 150ms;
+	color: inherit;
+
+	&__icon {
+		width: 20px;
+		height: 20px;
+	}
+
+	&__text {
+
+	}
+}

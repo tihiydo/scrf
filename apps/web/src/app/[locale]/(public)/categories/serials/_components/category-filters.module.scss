@@ -1,0 +1,273 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/breakpoints';
+
+.filter {
+	@media (min-width: breakpoints.$md) {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		border-radius: 20px;
+		width: 100% ;
+	}
+}
+
+.mobile {
+	display: block;
+	@media screen and (min-width: breakpoints.$md) {
+		display: none;
+	}
+
+	&__overlay {
+		position: fixed;
+		inset: 0;
+		z-index: 990;
+		background: rgb(0, 0, 0, 0.4);
+		backdrop-filter: blur(3px);
+	}
+}
+
+.filters-mobile {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 1000;
+	width: 100%;
+	background: #ffffff08;
+	background-color: black;
+	max-height: 90%;
+
+	&__drawer-content {
+		overflow: auto;
+		display: flex;
+		flex-direction: column;
+		padding: 20px;
+	}
+
+	&__header {
+		display: flex;
+		gap: 20px;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+		&__left {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 0px;
+		}
+	}
+
+	&__title {
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		line-height: 115%;
+		font-size: fonts.$size-3xl;
+	}
+
+	&__close {
+		color: colors.$text-primary;
+		svg {
+			color: colors.$text-primary;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+}
+
+.filter-item {
+	&__title {
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		font-size: fonts.$size-ms;
+		margin-bottom: 10px;
+
+		@media (min-width: breakpoints.$md) {
+			font-size: fonts.$size-xl;
+			margin-bottom: 5px;
+		}
+
+		@media (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-2xl;
+		}
+
+		@media (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-3xl;
+		}
+	}
+
+	&__input {
+		font-size: fonts.$size-sm !important;
+		width: 100% !important;
+		
+
+		@media (min-width: breakpoints.$md) {
+			margin-bottom: 5px;
+			font-size: fonts.$size-lg !important;
+		}
+	}
+
+	&__input-trigger_active {
+		border-color: colors.$primary !important;
+	}
+}
+
+.filters-btn {
+	&__motion {
+		display: flex;
+		align-items: center;
+	}
+
+	&__icon {
+	}
+}
+
+.desktop {
+	display: none;
+	@media screen and (min-width: breakpoints.$md) {
+		display: block;
+	}
+
+	&__item {
+		width: 100%;
+	}
+
+	&__motion {
+		// overflow: hidden;
+	}
+
+	&__title {
+		text-transform: uppercase;
+		font-family: fonts.$font-primary;
+		font-size: fonts.$size-xl;
+		margin-bottom: 5px;
+
+		@media (min-width: breakpoints.$lg) {
+			font-size: fonts.$size-2xl;
+		}
+
+		@media (min-width: breakpoints.$xxl) {
+			font-size: fonts.$size-3xl;
+		}
+	}
+
+	&__reset {
+		line-height: 36px;
+		margin-bottom: 5px;
+		color: colors.$text-primary;
+		&:hover {
+			text-decoration: underline;
+		}
+
+		@media (max-width: breakpoints.$xl) {
+			line-height: 30px;
+			margin-bottom: 5px;
+		}
+		@media (min-width: breakpoints.$lg) {
+			line-height: 36px;
+			margin-bottom: 5px;
+		}
+		@media (min-width: breakpoints.$xl) {
+			margin-bottom: 5px;
+		}
+		@media (min-width: breakpoints.$xxl) {
+			margin-bottom: 12px;
+		}
+		
+	}
+
+	&__filters-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		
+		@media (min-width: breakpoints.$xl) {
+			gap: 30px;
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	&__content-wrapper {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 30px;
+		
+
+		@media (min-width: breakpoints.$xl) {
+			gap: 50px;
+			grid-template-columns: 4fr 1fr;
+		}
+	}
+}
+
+.more-filters {
+	margin-top: 20px;
+}
+
+.show-more {
+	text-transform: uppercase;
+	font-family: fonts.$font-primary;
+	display: flex;
+	color: colors.$text-primary;
+	justify-content: space-between !important;
+	width: 100% !important;
+	height: 54px;
+
+	&__motion {
+		display: flex;
+		align-items: center;
+	}
+
+	@media screen and (min-width: breakpoints.$xl) {
+		font-size: fonts.$size-xl !important;
+		height: 54px !important;
+	}
+}
+
+.rating-item {
+	display: flex;
+	gap: 4px;
+	&__icon {
+		fill: currentColor;
+	}
+
+	&__text {
+		max-width: 100px;
+		display: block;
+		@media screen and (min-width: breakpoints.$md) {
+			max-width: 2000px;
+		}
+	}
+
+	&__icon {
+		width: 24px;
+		height: 24px;
+
+		@media screen and (max-width: breakpoints.$md) {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+
+.optionWithIcon {
+	gap: 8px;
+	font-size: fonts.$size-sm;
+	align-items: center;
+	&svg {
+		width: 14px;
+		height: 14px;
+	}
+	
+	@media screen and (min-width: breakpoints.$md) {
+		font-size: fonts.$size-lg;
+	}
+}

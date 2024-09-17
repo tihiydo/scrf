@@ -1,0 +1,185 @@
+@use '@/styles/variables/colors';
+@use '@/styles/variables/fonts';
+
+.container {
+	display: flex;
+	container-type: inline-size;
+	container-name: card;
+	width: 100%;
+	height: 100%;
+	border-radius: 20px;
+	position: relative; // Додаємо відносну позицію
+	z-index: 1; // Встановлюємо початковий рівень
+  
+	&:hover {
+	  z-index: 10; // Збільшуємо рівень під час ховеру
+	}
+  }
+
+  .wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background-color: black;
+	border-radius: 20px;
+	padding: 20px;
+  }
+
+.block {
+
+	z-index: 9999999999999999999999999;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	@container fiction-card (min-width: 180px) {
+		gap: 5px;
+	}
+	@container fiction-card (min-width: 240px) {
+		gap: 10px;
+	}
+	
+	&__icons {
+		display: flex;
+		justify-content: space-between;
+		gap: 15px;
+		@container fiction-card (min-width: 180px) {
+			gap: 5px;
+		}
+	}
+}
+
+.info {
+	padding-top: 20px;
+	&__item {
+		font-family: fonts.$font-primary;
+		font-size:fonts.$size-base ;
+		display: flex;
+		gap: 25px;
+		padding-top: 10px;
+		@container fiction-card (min-width: 180px) {
+			font-size:fonts.$size-xs ;
+		}
+		@container fiction-card (min-width: 240px) {
+			font-size:fonts.$size-base ;
+		}
+	}
+
+	&__star {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 5px;
+
+		@container fiction-card (min-width: 180px) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		@container fiction-card (min-width: 240px) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	&__time {
+		display: flex;
+		gap: 10px;
+		@container fiction-card (min-width: 180px) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		@container fiction-card (min-width: 240px) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	&__genres {
+		max-height: 50%;
+		padding-top: 20px;
+		font-size:fonts.$size-base 	;
+		@container fiction-card (min-width: 180px) {
+			font-size:fonts.$size-xs ;
+			padding-top: 10px;
+		}
+		@container fiction-card (min-width: 240px) {
+			font-size:fonts.$size-base ;
+		}
+	}
+	&__title {
+		line-height: 30px;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		text-transform: uppercase ;
+		font-size:fonts.$size-2xl ;
+		font-weight: 900;
+		font-family: fonts.$font-primary;
+		@container fiction-card (min-width: 180px) {
+			font-size:fonts.$size-xs ;
+		}
+		@container fiction-card (min-width: 240px) {
+			font-size:fonts.$size-2xl ;
+		}
+	}
+	&__item-color {
+		fill: colors.$primary;
+	}
+	&__item-icon {
+		color: colors.$primary;
+		width: 24px;
+		height: 24px;
+		flex-shrink: 0;
+
+		@container fiction-card (min-width: 180px) {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+.buton {
+	display: flex;
+
+	font-size:fonts.$size-sm !important;
+	font-weight: 900;
+	height: 40px;
+	width: 90px ;
+	align-items: center;
+	justify-content: center;
+
+	@container fiction-card (min-width: 180px) {
+		padding: 5px;
+		height: 35px;
+		width:  90px;
+	}
+
+	&__icon {
+		width: 30px ;
+		height: 30px;
+	}
+}
+
+.share-icon {
+	height: 30px;
+	width: 30px;
+}
+
+.actions-Item {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// .button-container {
+// 	margin-top: 10px;
+// 	gap: 20px;
+// 	display: flex;
+// 	position: relative;
+// }

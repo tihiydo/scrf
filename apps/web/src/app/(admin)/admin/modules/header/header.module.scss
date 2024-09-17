@@ -1,0 +1,35 @@
+@use '@/styles/variables/fonts';
+@use '@/styles/variables/colors';
+
+
+.header {
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    text-transform: uppercase;
+    font-family: fonts.$font-primary;
+    font-size: fonts.$size-4xl;
+
+    &__highlight {
+        color: colors.$primary;
+        font-family: inherit;
+    }
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.role-name {
+    color: colors.$gray;
+    text-transform: uppercase;
+    font-family: fonts.$font-primary;
+    font-size: fonts.$size-xl;
+    text-decoration: underline;
+}

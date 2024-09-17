@@ -1,0 +1,14 @@
+{
+    "compilerOptions": 
+    {
+      "target": "ES2022",     
+      "module": "ESNext",                                                              
+      "outDir": "dist",
+      "moduleResolution": "Node",                    
+      "sourceMap": true,                    
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,        
+      "strict": false     
+    },
+    "include": ["./src/**/*", "./*.d.ts"]
+}
